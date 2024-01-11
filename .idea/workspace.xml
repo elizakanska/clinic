@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Business level">
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Business level (Mappers and Services)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/PetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/PetMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/VisitMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/VisitMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/PetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/VisitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/VisitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/PetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/VisitServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/web/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/web/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/web/controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/web/controller/VisitController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704893737402</updated>
       <workItem from="1704893738443" duration="2081000" />
-      <workItem from="1704962824330" duration="15304000" />
+      <workItem from="1704962824330" duration="17527000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -115,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704974099602</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Business level (Mappers and Services)">
+      <option name="closed" value="true" />
+      <created>1704981906404</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704981906404</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +151,7 @@
     <MESSAGE value="Blank canvas" />
     <MESSAGE value="Basic classes + sql scripts" />
     <MESSAGE value="Business level" />
-    <option name="LAST_COMMIT_MESSAGE" value="Business level" />
+    <MESSAGE value="Business level (Mappers and Services)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Business level (Mappers and Services)" />
   </component>
 </project>
