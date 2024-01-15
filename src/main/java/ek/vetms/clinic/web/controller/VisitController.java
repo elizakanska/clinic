@@ -28,7 +28,7 @@ import java.util.Optional;
 public class VisitController {
     private final VisitService service;
 
-    @GetMapping("/{id}")
+    @GetMapping("/getVisit/{id}")
     public ResponseEntity<Visit> getVisitById(@NonNull @PathVariable("id") Long id){
         Optional<Visit> visitToFind = service.findVisitById(id);
 
@@ -41,7 +41,7 @@ public class VisitController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/newVisit")
     public ResponseEntity<Visit> saveVisit(@Valid @RequestBody Visit visit,
                                        BindingResult bindingResult){
         if (bindingResult.hasErrors()){
@@ -53,7 +53,7 @@ public class VisitController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/editVisit/{id}")
     public ResponseEntity<Visit> editVisitById(@NonNull @PathVariable("id") Long id,
                                            @RequestBody Visit visit){
         Optional<Visit> visitToEdit = service.editVisitById(id, visit);
@@ -70,7 +70,7 @@ public class VisitController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteVisit/{id}")
     public ResponseEntity<String> deleteVisitById(@NonNull @PathVariable("id") Long id){
         Optional<Visit> visitToDelete = service.deleteVisitById(id);
 

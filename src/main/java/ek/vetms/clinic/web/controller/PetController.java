@@ -28,7 +28,7 @@ import java.util.Optional;
 public class PetController {
     private final PetService service;
 
-    @GetMapping("/{id}")
+    @GetMapping("/getPet/{id}")
     public ResponseEntity<Pet> getPetById(@NonNull @PathVariable("id") Long id){
         Optional<Pet> petToFind = service.findPetById(id);
 
@@ -41,7 +41,7 @@ public class PetController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/newPet")
     public ResponseEntity<Pet> savePet(@Valid @RequestBody Pet pet,
                                        BindingResult bindingResult){
         if (bindingResult.hasErrors()){
@@ -53,7 +53,7 @@ public class PetController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/editPet/{id}")
     public ResponseEntity<Pet> editPetById(@NonNull @PathVariable("id") Long id,
                                            @RequestBody Pet pet){
         Optional<Pet> petToEdit = service.editPetById(id, pet);
@@ -70,7 +70,7 @@ public class PetController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletePet/{id}")
     public ResponseEntity<String> deletePetById(@NonNull @PathVariable("id") Long id){
         Optional<Pet> petToDelete = service.deletePetById(id);
 
