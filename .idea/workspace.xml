@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Basic endpoints for everything">
+      <change afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/business/service/impl/PetServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/business/service/impl/VetServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/web/controller/PetControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/web/controller/VetControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/VetClinicMsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/VetClinicMsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/VisitMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/VisitMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/PetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/VisitServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/model/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/model/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/model/Visit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +25,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,12 +72,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build clinic.executor": "Run",
+    "Gradle.PetServiceImplTest.executor": "Run",
+    "Gradle.PetServiceImplTest.testDeletePetByIdNotFound.executor": "Run",
+    "Gradle.PetServiceImplTest.testDeletePetByIdSuccess.executor": "Run",
+    "Gradle.PetServiceImplTest.testEditPetByIdSuccess.executor": "Debug",
+    "Gradle.PetServiceImplTest.testFindPetByIdSuccess.executor": "Run",
+    "Gradle.PetServiceImplTest.testSavePetBlankName.executor": "Debug",
+    "Gradle.PetServiceImplTest.testSavePetNull.executor": "Run",
+    "Gradle.VisitServiceImplTest.executor": "Debug",
     "HTTP Request.VetClinicMsApplication | #1.executor": "Run",
     "HTTP Request.VetClinicMsApplication | #2.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "259",
-    "RequestMappingsPanelWidth1": "258",
+    "RequestMappingsPanelWidth0": "254",
+    "RequestMappingsPanelWidth1": "253",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.VetClinicMsApplication.executor": "Run",
@@ -81,7 +106,127 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.VisitServiceImplTest">
+    <configuration name="PetServiceImplTest.testDeletePetByIdNotFound" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testDeletePetByIdNotFound&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PetServiceImplTest.testDeletePetByIdSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testDeletePetByIdSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PetServiceImplTest.testEditPetByIdSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testEditPetByIdSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PetServiceImplTest.testSavePetNull" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testSavePetNull&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="VisitServiceImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.VisitServiceImplTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="VetClinicMsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="clinic.main" />
@@ -90,6 +235,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.VisitServiceImplTest" />
+        <item itemvalue="Gradle.PetServiceImplTest.testDeletePetByIdNotFound" />
+        <item itemvalue="Gradle.PetServiceImplTest.testDeletePetByIdSuccess" />
+        <item itemvalue="Gradle.PetServiceImplTest.testEditPetByIdSuccess" />
+        <item itemvalue="Gradle.PetServiceImplTest.testSavePetNull" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,7 +257,8 @@
       <workItem from="1704962824330" duration="18020000" />
       <workItem from="1705057672110" duration="3760000" />
       <workItem from="1705308660441" duration="4581000" />
-      <workItem from="1705391703347" duration="1465000" />
+      <workItem from="1705391703347" duration="13827000" />
+      <workItem from="1705572681541" duration="765000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -145,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705312813854</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Basic endpoints for everything">
+      <option name="closed" value="true" />
+      <created>1705398591119</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705398591119</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +343,7 @@
     <MESSAGE value="Business level" />
     <MESSAGE value="Business level (Mappers and Services)" />
     <MESSAGE value="Basic Controllers (no Api yet)" />
+    <MESSAGE value="Minor edits" />
     <MESSAGE value="Basic endpoints for everything" />
     <option name="LAST_COMMIT_MESSAGE" value="Basic endpoints for everything" />
   </component>

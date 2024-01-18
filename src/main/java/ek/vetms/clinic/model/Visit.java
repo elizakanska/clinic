@@ -1,5 +1,6 @@
 package ek.vetms.clinic.model;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.JoinColumn;
@@ -23,8 +24,10 @@ public class Visit {
     private Pet pet;
 
     @NotNull
+    @NotBlank
     private String time;
 
     @NotNull
+    @NotBlank
     private String reason;
 }

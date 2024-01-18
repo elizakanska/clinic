@@ -22,7 +22,6 @@ public class Pet {
     @NotNull
     private String species;
 
-    @NotBlank
     @NotNull
     private Integer age;
 }

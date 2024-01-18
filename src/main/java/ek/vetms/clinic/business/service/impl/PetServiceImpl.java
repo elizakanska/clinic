@@ -30,12 +30,28 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public Pet savePet(Pet pet) throws IllegalArgumentException {
+        if (pet == null) {
+            log.error("Received null Pet object in savePet method.");
+            throw new IllegalArgumentException("Pet object cannot be null.");
+        }
+
+        if (pet.getName().isBlank() || pet.getSpecies().isBlank()) {
+            log.error("Failed to save pet. Blank name or species. Pet object: {}", pet);
+            throw new IllegalArgumentException("Name and species cannot be blank.");
+        }
+
+        if (pet.getAge() == null) {
+            log.error("Failed to save pet. Null age. Pet object: {}", pet);
+            throw new IllegalArgumentException("Age cannot be null.");
+        }
+
         log.info("Saving new pet.");
         PetDAO petToSave = repository.save(mapper.petToPetDAO(pet));
 
         log.info("New pet saved with id {}.", petToSave.getId());
         return mapper.petDAOtoPet(petToSave);
     }
+
 
     @Override
     public Optional<Pet> editPetById(Long id, Pet pet) {
