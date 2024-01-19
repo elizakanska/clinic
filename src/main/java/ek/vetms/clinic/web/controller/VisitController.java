@@ -24,11 +24,11 @@ import java.util.Optional;
 @Log4j2
 @AllArgsConstructor
 @RestController
-@RequestMapping("api/v1/status")
+@RequestMapping("api/v1/visit")
 public class VisitController {
     private final VisitService service;
 
-    @GetMapping("/getVisit/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Visit> getVisitById(@NonNull @PathVariable("id") Long id){
         Optional<Visit> visitToFind = service.findVisitById(id);
 
@@ -41,7 +41,7 @@ public class VisitController {
         }
     }
 
-    @PostMapping("/newVisit")
+    @PostMapping
     public ResponseEntity<Visit> saveVisit(@Valid @RequestBody Visit visit,
                                        BindingResult bindingResult){
         if (bindingResult.hasErrors()){
@@ -53,7 +53,7 @@ public class VisitController {
         }
     }
 
-    @PutMapping("/editVisit/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Visit> editVisitById(@NonNull @PathVariable("id") Long id,
                                            @RequestBody Visit visit){
         Optional<Visit> visitToEdit = service.editVisitById(id, visit);
@@ -70,7 +70,7 @@ public class VisitController {
         }
     }
 
-    @DeleteMapping("/deleteVisit/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteVisitById(@NonNull @PathVariable("id") Long id){
         Optional<Visit> visitToDelete = service.deleteVisitById(id);
 

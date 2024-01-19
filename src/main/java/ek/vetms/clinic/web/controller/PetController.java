@@ -24,11 +24,11 @@ import java.util.Optional;
 @Log4j2
 @AllArgsConstructor
 @RestController
-@RequestMapping("api/v1/status")
+@RequestMapping("api/v1/pet")
 public class PetController {
     private final PetService service;
 
-    @GetMapping("/getPet/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Pet> getPetById(@NonNull @PathVariable("id") Long id){
         Optional<Pet> petToFind = service.findPetById(id);
 
@@ -41,7 +41,7 @@ public class PetController {
         }
     }
 
-    @PostMapping("/newPet")
+    @PostMapping("/save")
     public ResponseEntity<Pet> savePet(@Valid @RequestBody Pet pet,
                                        BindingResult bindingResult){
         if (bindingResult.hasErrors()){
@@ -53,7 +53,7 @@ public class PetController {
         }
     }
 
-    @PutMapping("/editPet/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Pet> editPetById(@NonNull @PathVariable("id") Long id,
                                            @RequestBody Pet pet){
         Optional<Pet> petToEdit = service.editPetById(id, pet);
@@ -70,7 +70,7 @@ public class PetController {
         }
     }
 
-    @DeleteMapping("/deletePet/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePetById(@NonNull @PathVariable("id") Long id){
         Optional<Pet> petToDelete = service.deletePetById(id);
 
@@ -82,5 +82,4 @@ public class PetController {
             return ResponseEntity.notFound().build();
         }
     }
-
 }
