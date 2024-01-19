@@ -11,15 +11,26 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.any;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @WebMvcTest(PetController.class)
 public class PetControllerTest {
-private final static String PET_URL = "/api/v1/pet";
-private final static String GET_URL = PET_URL + "/get";
+    private final static String PET_URL = "/api/v1/pet";
+    private final static String GET_URL = PET_URL + "/get";
     private final static String SAVE_URL = PET_URL + "/save";
     private final static String EDIT_URL = PET_URL + "/edit";
     private final static String DELETE_URL = PET_URL + "/delete";
@@ -127,11 +138,11 @@ private final static String GET_URL = PET_URL + "/get";
     void testEditPetByIdBadRequest() throws Exception{
         when(service.editPetById(eq(1L), any(Pet.class))).thenReturn(Optional.empty());
 
-        Pet petToEdit = new Pet(2L, "Testy", "Test", 1);
+        Pet updatedPet = new Pet(2L, "Testy", "Test", 1);
 
         mockMvc.perform(put(EDIT_URL + "/1")
                         .contentType(APPLICATION_JSON)
-                        .content(JsonString(petToEdit))
+                        .content(JsonString(updatedPet))
                         .accept(APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
         verify(service, times(1)).editPetById(eq(1L), any(Pet.class));
