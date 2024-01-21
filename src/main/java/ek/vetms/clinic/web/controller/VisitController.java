@@ -1,6 +1,8 @@
 package ek.vetms.clinic.web.controller;
 
+import ek.vetms.clinic.business.service.PetService;
 import ek.vetms.clinic.business.service.VisitService;
+import ek.vetms.clinic.model.Pet;
 import ek.vetms.clinic.model.Visit;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Log4j2
@@ -26,15 +29,27 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/v1/visit")
 public class VisitController {
-    private final VisitService service;
+    private final VisitService visitService;
+    private final PetService petService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<Visit> getVisitById(@NonNull @PathVariable("id") Long id){
-        Optional<Visit> visitToFind = service.findVisitById(id);
+        Optional<Visit> visitToFind = visitService.findVisitById(id);
 
         if (visitToFind.isPresent()) {
             log.info("Visit with id {} found.", id);
-            return ResponseEntity.ok(visitToFind.get());
+
+            Visit visit = visitToFind.get();
+            Optional<Pet> petDetails = petService.findPetById(visit.getPet().getId());
+
+            if (petDetails.isPresent()) {
+                log.info("Pet details found: {}", petDetails.get());
+                visit.setPet(petDetails.get());
+                return ResponseEntity.ok(visit);
+            } else {
+                log.info("Pet with id {} not found.", visit.getPet().getId());
+                return ResponseEntity.notFound().build();
+            }
         } else {
             log.info("Visit with id {} not found.", id);
             return ResponseEntity.notFound().build();
@@ -43,36 +58,68 @@ public class VisitController {
 
     @PostMapping("/save")
     public ResponseEntity<Visit> saveVisit(@Valid @RequestBody Visit visit,
-                                       BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+                                           BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             log.error("New visit entry has error: {}.", bindingResult);
             return ResponseEntity.badRequest().build();
         } else {
-            Visit result = service.saveVisit(visit);
-            return ResponseEntity.status(HttpStatus.CREATED).body(result);
+            Optional<Pet> pet = petService.findPetById(visit.getPet().getId());
+
+            if (pet.isPresent()) {
+                visit.setPet(pet.get());
+                Visit result = visitService.saveVisit(visit);
+
+                Optional<Pet> petDetails = petService.findPetById(visit.getPet().getId());
+
+                if (petDetails.isPresent()) {
+                    result.setPet(petDetails.get());
+                    return ResponseEntity.status(HttpStatus.CREATED).body(result);
+                } else {
+                    log.info("Pet details not found for id {}.", visit.getPet().getId());
+                    return ResponseEntity.notFound().build();
+                }
+            } else {
+                log.info("Pet with id {} not found.", visit.getPet().getId());
+                return ResponseEntity.notFound().build();
+            }
         }
     }
+
 
     @PutMapping("/edit/{id}")
     public ResponseEntity<Visit> editVisitById(@NonNull @PathVariable("id") Long id,
-                                           @RequestBody Visit visit){
-        Optional<Visit> visitToEdit = service.editVisitById(id, visit);
-
-        if (!visit.getId().equals(id)) {
+                                               @RequestBody Visit updatedVisit) {
+        if (!Objects.equals(updatedVisit.getId(), id)) {
             log.info("Given id {} does not match the id in the request body.", id);
             return ResponseEntity.badRequest().build();
-        } else if (!visitToEdit.isPresent()) {
+        }
+
+        Optional<Visit> visitToEdit = visitService.editVisitById(id, updatedVisit);
+
+        if (!visitToEdit.isPresent()) {
             log.info("Visit with id {} not found.", id);
             return ResponseEntity.notFound().build();
-        } else {
+        }
+
+        Optional<Pet> petDetails = petService.findPetById(updatedVisit.getPet().getId());
+
+        if (petDetails.isPresent()) {
+            Visit editedVisit = visitToEdit.get();
+            editedVisit.setPet(petDetails.get());
+
             log.info("Visit with id {} updated.", id);
-            return ResponseEntity.status(HttpStatus.CREATED).body(visitToEdit.get());
+            return ResponseEntity.status(HttpStatus.CREATED).body(editedVisit);
+        } else {
+            log.info("Pet details not found for id {}.", updatedVisit.getPet().getId());
+            return ResponseEntity.notFound().build();
         }
     }
 
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteVisitById(@NonNull @PathVariable("id") Long id){
-        Optional<Visit> visitToDelete = service.deleteVisitById(id);
+        Optional<Visit> visitToDelete = visitService.deleteVisitById(id);
 
         if (visitToDelete.isPresent()) {
             log.info("Visit with id {} has been deleted.", id);
@@ -82,5 +129,5 @@ public class VisitController {
             return ResponseEntity.notFound().build();
         }
     }
-
 }
+

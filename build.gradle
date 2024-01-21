@@ -28,26 +28,42 @@ ext {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Database
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'org.flywaydb:flyway-mysql'
-	implementation 'junit:junit:4.13.1'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	compileOnly 'org.projectlombok:lombok'
-	implementation 'org.jetbrains:annotations:20.1.0'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// Testing
+	testImplementation 'junit:junit:4.13.1'
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	implementation 'org.mockito:mockito-core:4.0.0'
-	//implementation 'io.springfox:springfox-swagger2:3.0.0'
-	//implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// MapStruct
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+	// Development tools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+	// Swagger (figure out later, too many error)
+	//implementation 'io.springfox:springfox-swagger2:3.0.0'
+	//implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+	// Other dependencies
+	implementation 'org.jetbrains:annotations:20.1.0'
 }
+
 
 tasks.named('test') {
 	outputs.dir snippetsDir

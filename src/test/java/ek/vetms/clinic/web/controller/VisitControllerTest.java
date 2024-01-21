@@ -1,6 +1,7 @@
 package ek.vetms.clinic.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ek.vetms.clinic.business.service.impl.PetServiceImpl;
 import ek.vetms.clinic.business.service.impl.VisitServiceImpl;
 import ek.vetms.clinic.model.Pet;
 import ek.vetms.clinic.model.Visit;
@@ -12,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
@@ -39,6 +41,8 @@ public class VisitControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private VisitServiceImpl service;
+    @MockBean
+    private PetServiceImpl petService;
     private final Pet pet = new Pet(1L, "Test", "Test", 5);
     private final Visit visit = new Visit(1L, pet, "2024-03-01 9:15", "Test");
     private final Visit visitNullPet = new Visit(1L, null, "2024-03-01 9:15", "Test");
@@ -46,17 +50,22 @@ public class VisitControllerTest {
     private final Visit visitBlankReason = new Visit(1L, pet, "2024-03-01 9:15", " ");
 
     @Test
-    void testGetVisitByIdSuccess() throws Exception{
+    void testGetVisitByIdSuccess() throws Exception {
         when(service.findVisitById(1L)).thenReturn(Optional.of(visit));
+        when(petService.findPetById(visit.getPet().getId())).thenReturn(Optional.of(pet));
 
         mockMvc.perform(get(GET_URL + "/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1))
-                .andExpect(jsonPath("$.pet").value(pet))
+                .andExpect(jsonPath("$.pet.id").value(pet.getId()))
+                .andExpect(jsonPath("$.pet.name").value(pet.getName()))
+                .andExpect(jsonPath("$.pet.species").value(pet.getSpecies()))
+                .andExpect(jsonPath("$.pet.age").value(pet.getAge()))
                 .andExpect(jsonPath("$.time").value("2024-03-01 9:15"))
                 .andExpect(jsonPath("$.reason").value("Test"));
         verify(service, times(1)).findVisitById(1L);
+        verify(petService, times(1)).findPetById(visit.getPet().getId());
     }
     @Test
     void testGetVisitByIdNotFound() throws Exception{
@@ -69,6 +78,7 @@ public class VisitControllerTest {
 
     @Test
     void testSaveVisitSuccess() throws Exception{
+        when(petService.findPetById(eq(1L))).thenReturn(Optional.of(pet));
         when(service.saveVisit(new Visit(1L, pet, "2024-03-01 9:15", "Test")))
                 .thenReturn(visit);
 
@@ -82,7 +92,20 @@ public class VisitControllerTest {
                 .andExpect(jsonPath("$.pet").value(pet))
                 .andExpect(jsonPath("$.time").value("2024-03-01 9:15"))
                 .andExpect(jsonPath("$.reason").value("Test"));
+        verify(petService, times(1)).findPetById(eq(1L));
         verify(service, times(1)).saveVisit(visit);
+    }
+    @Test
+    void testSaveVisitPetNotFound() throws Exception {
+        when(petService.findPetById(eq(visit.getPet().getId()))).thenReturn(Optional.empty());
+
+        mockMvc.perform(post(SAVE_URL)
+                        .contentType(APPLICATION_JSON)
+                        .content(JsonString(visit))
+                        .accept(APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+        verify(petService, times(1)).findPetById(eq(visit.getPet().getId()));
+        verify(service, times(0)).saveVisit(any(Visit.class));
     }
     @Test
     void testSaveVisitNullPet() throws Exception{
@@ -116,6 +139,7 @@ public class VisitControllerTest {
     void testEditVisitByIdSuccess() throws Exception{
         Visit updatedVisit = new Visit(1L, pet, "2024-03-01 9:30", "Test");
 
+        when(petService.findPetById(eq(1L))).thenReturn(Optional.of(pet));
         when(service.editVisitById(eq(1L), any(Visit.class))).thenReturn(Optional.of(updatedVisit));
 
         mockMvc.perform(put(EDIT_URL + "/1")
@@ -128,6 +152,7 @@ public class VisitControllerTest {
                 .andExpect(jsonPath("$.pet").value(pet))
                 .andExpect(jsonPath("$.time").value("2024-03-01 9:30"))
                 .andExpect(jsonPath("$.reason").value("Test"));
+        verify(petService, times(1)).findPetById(eq(1L));
         verify(service, times(1)).editVisitById(eq(1L), any(Visit.class));
     }
     @Test
@@ -155,6 +180,21 @@ public class VisitControllerTest {
                         .content(JsonString(visitNotFound))
                         .accept(APPLICATION_JSON))
                 .andExpect(status().isNotFound());
+        verify(service, times(1)).editVisitById(eq(1L), any(Visit.class));
+    }
+    @Test
+    void testEditVisitByIdPetNotFound() throws Exception {
+        Visit updatedVisit = new Visit(1L, pet, "2024-03-01 9:30", "Test");
+
+        when(petService.findPetById(eq(updatedVisit.getPet().getId()))).thenReturn(Optional.empty());
+        when(service.editVisitById(eq(1L), any(Visit.class))).thenReturn(Optional.empty());
+
+        mockMvc.perform(put(EDIT_URL + "/1")
+                        .contentType(APPLICATION_JSON)
+                        .content(JsonString(updatedVisit))
+                        .accept(APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+        verify(petService, times(0)).findPetById(anyLong());
         verify(service, times(1)).editVisitById(eq(1L), any(Visit.class));
     }
 
