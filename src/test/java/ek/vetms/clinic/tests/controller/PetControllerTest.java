@@ -1,22 +1,23 @@
-package ek.vetms.clinic.web.controller;
+package ek.vetms.clinic.tests.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ek.vetms.clinic.business.service.impl.PetServiceImpl;
-import ek.vetms.clinic.model.Pet;
+import ek.vetms.clinic.controller.PetController;
+import ek.vetms.clinic.controller.errorHandling.NotFoundException;
+import ek.vetms.clinic.service.impl.PetServiceImpl;
+import ek.vetms.clinic.entity.Pet;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.any;
-
+import static org.mockito.Mockito.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -29,11 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(PetController.class)
 public class PetControllerTest {
-    private final static String PET_URL = "/api/v1/pet";
-    private final static String GET_URL = PET_URL + "/get";
-    private final static String SAVE_URL = PET_URL + "/save";
-    private final static String EDIT_URL = PET_URL + "/edit";
-    private final static String DELETE_URL = PET_URL + "/delete";
+    private final String PET_URL = "/api/v2/pets";
     @Autowired
     private MockMvc mockMvc;
     @MockBean
@@ -44,10 +41,27 @@ public class PetControllerTest {
     private final Pet petNullAge = new Pet(1L, "Testy", "Test", null);
 
     @Test
+    void testFindAll() throws Exception {
+        Pet pet1 = new Pet(1L, "Buddy", "Dog", 3);
+        Pet pet2 = new Pet(2L, "Whiskers", "Cat", 2);
+        List<Pet> petList = Arrays.asList(pet1, pet2);
+
+        when(service.findAll()).thenReturn(petList);
+
+        mockMvc.perform(get(PET_URL))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$[0].id").value(1L))
+                .andExpect(jsonPath("$[0].name").value("Buddy"))
+                .andExpect(jsonPath("$[1].id").value(2L))
+                .andExpect(jsonPath("$[1].name").value("Whiskers"));
+        verify(service, times(1)).findAll();
+    }
+    @Test
     void testGetPetByIdSuccess() throws Exception{
         when(service.findPetById(1L)).thenReturn(Optional.of(pet));
 
-        mockMvc.perform(get(GET_URL + "/1"))
+        mockMvc.perform(get(PET_URL+ "/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1))
@@ -60,17 +74,16 @@ public class PetControllerTest {
     void testGetPetByIdNotFound() throws Exception{
         when(service.findPetById(1L)).thenReturn(Optional.empty());
 
-        mockMvc.perform(get(GET_URL + "/1"))
+        mockMvc.perform(get( PET_URL + "/1"))
                 .andExpect(status().isNotFound());
         verify(service, times(1)).findPetById(1L);      
     }
 
     @Test
     void testSavePetSuccess() throws Exception{
-        when(service.savePet(new Pet(1L, "Testy", "Test", 1)))
-                .thenReturn(pet);
+        when(service.savePet(any(Pet.class))).thenReturn(ResponseEntity.status(HttpStatus.CREATED).body(pet));
 
-        mockMvc.perform(post(SAVE_URL)
+        mockMvc.perform(post(PET_URL)
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(pet))
                         .accept(APPLICATION_JSON))
@@ -84,9 +97,9 @@ public class PetControllerTest {
     }
     @Test
     void testSavePetBlankName() throws Exception{
-        when(service.savePet(petBlankName)).thenReturn(petBlankName);
+        when(service.savePet(petBlankName)).thenReturn(ResponseEntity.badRequest().build());
 
-        mockMvc.perform(post(SAVE_URL)
+        mockMvc.perform(post(PET_URL)
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(petBlankName))
                         .accept(APPLICATION_JSON))
@@ -95,9 +108,9 @@ public class PetControllerTest {
     }
     @Test
     void testSavePetBlankSpecies() throws Exception{
-        when(service.savePet(petBlankSpecies)).thenReturn(petBlankSpecies);
+        when(service.savePet(petBlankSpecies)).thenReturn(ResponseEntity.badRequest().build());
 
-        mockMvc.perform(post(SAVE_URL)
+        mockMvc.perform(post(PET_URL)
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(petBlankSpecies))
                         .accept(APPLICATION_JSON))
@@ -106,9 +119,9 @@ public class PetControllerTest {
     }
     @Test
     void testSavePetNullAge() throws Exception{
-        when(service.savePet(petNullAge)).thenReturn(petNullAge);
+        when(service.savePet(petNullAge)).thenReturn(ResponseEntity.badRequest().build());
 
-        mockMvc.perform(post(SAVE_URL)
+        mockMvc.perform(post(PET_URL)
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(petNullAge))
                         .accept(APPLICATION_JSON))
@@ -120,9 +133,9 @@ public class PetControllerTest {
     void testEditPetByIdSuccess() throws Exception{
         Pet updatedPet = new Pet(1L, "Update", "New", 3);
 
-        when(service.editPetById(eq(1L), any(Pet.class))).thenReturn(Optional.of(updatedPet));
+        when(service.editPetById(eq(1L), any(Pet.class))).thenReturn(ResponseEntity.status(HttpStatus.CREATED).body(updatedPet));
 
-        mockMvc.perform(put(EDIT_URL + "/1")
+        mockMvc.perform(put(PET_URL + "/1")
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(updatedPet))
                         .accept(APPLICATION_JSON))
@@ -136,11 +149,11 @@ public class PetControllerTest {
     }
     @Test
     void testEditPetByIdBadRequest() throws Exception{
-        when(service.editPetById(eq(1L), any(Pet.class))).thenReturn(Optional.empty());
+        when(service.editPetById(eq(1L), any(Pet.class))).thenReturn(ResponseEntity.badRequest().build());
 
         Pet updatedPet = new Pet(2L, "Testy", "Test", 1);
 
-        mockMvc.perform(put(EDIT_URL + "/1")
+        mockMvc.perform(put(PET_URL + "/1")
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(updatedPet))
                         .accept(APPLICATION_JSON))
@@ -150,11 +163,11 @@ public class PetControllerTest {
     @Test
     void testEditPetByIdNotFound() throws Exception{
         when(service.editPetById(eq(1L), any(Pet.class)))
-                .thenReturn(Optional.empty());
+                .thenReturn(ResponseEntity.notFound().build());
 
         Pet petNotFound = new Pet(1L, "Not", "Found", 0);
 
-        mockMvc.perform(put(EDIT_URL + "/1")
+        mockMvc.perform(put(PET_URL + "/1")
                         .contentType(APPLICATION_JSON)
                         .content(JsonString(petNotFound))
                         .accept(APPLICATION_JSON))
@@ -163,28 +176,20 @@ public class PetControllerTest {
     }
 
     @Test
-    void testDeletePetByIdSuccess(){
-        when(service.deletePetById(1L)).thenReturn(Optional.of(pet));
+    void testDeletePetByIdSuccess() throws Exception{
+        doNothing().when(service).deletePetById(1L);
 
-        try {
-            mockMvc.perform(delete(DELETE_URL + "/1"))
-                    .andExpect(status().isOk());
-            verify(service, times(1)).deletePetById(1L);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        mockMvc.perform(delete(PET_URL + "/1"))
+                .andExpect(status().isOk());
+        verify(service, times(1)).deletePetById(1L);
     }
     @Test
-    void testDeletePetByIdNotFound(){
-        when(service.deletePetById(2L)).thenReturn(Optional.empty());
+    void testDeletePetByIdNotFound() throws Exception {
+        doThrow(NotFoundException.class).when(service).deletePetById(2L);
 
-        try {
-            mockMvc.perform(delete(DELETE_URL + "/2"))
-                    .andExpect(status().isNotFound());
-            verify(service, times(1)).deletePetById(2L);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        mockMvc.perform(delete(PET_URL + "/2"))
+                .andExpect(status().isNotFound());
+        verify(service, times(1)).deletePetById(2L);
     }
 
     private static String JsonString(final Object object) {
@@ -194,5 +199,4 @@ public class PetControllerTest {
             throw new RuntimeException(e);
         }
     }
-
 }
