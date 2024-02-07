@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Fixed issue with mapping, visit controller and subsequent test classes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/errorHandling/ClinicExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/errorHandling/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/errorHandling/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/PetRepository.java" afterDir="false" />
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Refactored code based on feedback gained during demo session">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/PetMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/mappers/VisitMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/repository/PetRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/repository/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/repository/model/PetDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/entity/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/repository/model/VisitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/entity/Visit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/PetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/VisitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/VisitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/PetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/business/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/model/Pet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/model/Visit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/web/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/web/controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/business/service/impl/PetServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/impl/PetServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/business/service/impl/VisitServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/impl/VisitServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/web/controller/PetControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/controller/PetControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/web/controller/VisitControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/controller/VisitControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +145,7 @@
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic\aclinic\entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'ek.vetms.clinic.tests'">
+  <component name="RunManager" selected="Spring Boot.VetClinicMsApplication">
     <configuration name="Tests in 'ek.vetms.clinic.tests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -288,7 +272,7 @@
       <workItem from="1706611047340" duration="6442000" />
       <workItem from="1706680884839" duration="12259000" />
       <workItem from="1706769949861" duration="1602000" />
-      <workItem from="1706865099889" duration="8030000" />
+      <workItem from="1706865099889" duration="17597000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -346,7 +330,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705860119656</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactored code based on feedback gained during demo session">
+      <option name="closed" value="true" />
+      <created>1706883993212</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706883993212</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Refactored code based on feedback gained during demo session">
+      <option name="closed" value="true" />
+      <created>1706884053914</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706884053914</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +386,8 @@
     <MESSAGE value="Implementation of Visit Controller Test class" />
     <MESSAGE value="Fixed issue with mapping, visit controller" />
     <MESSAGE value="Fixed issue with mapping, visit controller and subsequent test classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with mapping, visit controller and subsequent test classes" />
+    <MESSAGE value="Refactored code based on feedback gained during demo session" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored code based on feedback gained during demo session" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -396,7 +397,7 @@
     <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest.ic" NAME="PetServiceImplTest Coverage Results" MODIFIED="1706681305217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/clinic$Tests_in__clinic_test_.ic" NAME="Tests in 'clinic.test' Coverage Results" MODIFIED="1705927933298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest_testFindAll.ic" NAME="PetServiceImplTest.testFindAll Coverage Results" MODIFIED="1706534571796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/clinic$Tests_in__ek_vetms_clinic_tests_.ic" NAME="Tests in 'ek.vetms.clinic.tests' Coverage Results" MODIFIED="1706883592388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/clinic$Tests_in__ek_vetms_clinic_tests_.ic" NAME="Tests in 'ek.vetms.clinic.tests' Coverage Results" MODIFIED="1706883777880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/clinic$VisitServiceImplTest.ic" NAME="VisitServiceImplTest Coverage Results" MODIFIED="1705925129198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
