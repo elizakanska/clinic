@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +27,7 @@ public class VisitServiceImpl implements VisitService {
 
     @Override
     public List<Visit> findAll() {
-        return repository.findAll();
+        return repository.findAllByOrderByTimeAsc();
     }
 
     @Override
@@ -55,18 +57,32 @@ public class VisitServiceImpl implements VisitService {
 
     @Override
     public ResponseEntity<Visit> saveVisit(Visit visit) {
-        Optional<Pet> pet = petService.findPetById(visit.getPet().getId());
+        LocalTime visitTime = visit.getTime().toLocalTime();
+        DayOfWeek dayOfWeek = visit.getTime().getDayOfWeek();
 
-        if (pet.isPresent()) {
-            visit.setPet(pet.get());
-            Visit savedVisit = repository.save(visit);
-            log.info("New visit saved with id {}.", savedVisit.getId());
-            return ResponseEntity.status(HttpStatus.CREATED).body(savedVisit);
-        } else {
+        if (visitTime.isBefore(LocalTime.of(9, 0)) || visitTime.isAfter(LocalTime.of(17, 0)) || dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY) {
+            log.info("Visit time is outside the allowed range or on a weekend.");
+            return ResponseEntity.badRequest().build();
+        }
+
+        List<Visit> visitsAtSameTime = repository.findByTime(visit.getTime());
+        if (!visitsAtSameTime.isEmpty()) {
+            log.info("Visit time is not unique.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+
+        Optional<Pet> pet = petService.findPetById(visit.getPet().getId());
+        if (pet.isEmpty()) {
             log.info("Pet with id {} not found.", visit.getPet().getId());
             return ResponseEntity.notFound().build();
         }
+
+        visit.setPet(pet.get());
+        Visit savedVisit = repository.save(visit);
+        log.info("New visit saved with id {}.", savedVisit.getId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedVisit);
     }
+
 
     @Override
     public ResponseEntity<Visit> editVisitById(Long id, Visit visit) {

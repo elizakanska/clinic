@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>Save Pet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="content">
+    <h2>Pet Table</h2>
+    <hr>
+
+    <p class="h4 mb-4">Save Pet</p>
+    <form action="#" th:action="@{save}" th:object="${pet}" method="POST">
+        <input type="hidden" th:field="*{id}">
+        <label for="petName">Name:</label>
+        <input type="text" th:field="*{name}" id="petName" class="form-control mb-4 w-25" placeholder="Pet's name" required>
+        <label for="petSpecies">Species:</label>
+        <input type="text" th:field="*{species}" id="petSpecies" class="form-control mb-4 w-25" placeholder="Pet's species" required>
+        <label for="petAge">Age:</label>
+        <input type="text" th:field="*{age}" id="petAge" class="form-control mb-4 w-25" placeholder="Pet's age" required>
+        <button type="submit" class="btn btn-info col-2">Save</button>
+    </form>
+
+
+    <hr>
+    <a th:href="@{list}">Return to pet list</a>
+</div>
+</body>
+</html>

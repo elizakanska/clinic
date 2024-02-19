@@ -9,10 +9,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Refactored code based on feedback gained during demo session">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/pet-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/visit-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/PetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/PetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +62,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -70,7 +81,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2alWdw5FmM55PQVVHQyXIkE3hPv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -82,6 +93,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Gradle.Build clinic.executor": "Run",
     "Gradle.PetControllerTest.executor": "Debug",
     "Gradle.PetControllerTest.testDeletePetByIdNotFound.executor": "Debug",
@@ -120,7 +132,7 @@
     "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/eliza.kanska/IdeaProjects/staffing-service_1",
+    "last_opened_file_path": "C:/Users/eliza.kanska/Documents/sb-project/clinic/src/main/resources/templates/visits",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -137,12 +149,18 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\visits" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\" />
+      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\pets" />
+      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates" />
+      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\static" />
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic\controller" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\test\java\ek\vetms\clinic" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic\aclinic\repository" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic\aclinic\entity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ek.vetms.clinic.controller" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.VetClinicMsApplication">
@@ -234,9 +252,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound" />
         <item itemvalue="Gradle.Tests in 'ek.vetms.clinic.tests'" />
         <item itemvalue="Gradle.VisitControllerTest" />
-        <item itemvalue="Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound" />
+        <item itemvalue="Gradle.Tests in 'ek.vetms.clinic.tests'" />
+        <item itemvalue="Gradle.VisitControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -273,6 +293,9 @@
       <workItem from="1706680884839" duration="12259000" />
       <workItem from="1706769949861" duration="1602000" />
       <workItem from="1706865099889" duration="17597000" />
+      <workItem from="1707808909435" duration="4169000" />
+      <workItem from="1707890691769" duration="4361000" />
+      <workItem from="1707897998733" duration="7289000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />

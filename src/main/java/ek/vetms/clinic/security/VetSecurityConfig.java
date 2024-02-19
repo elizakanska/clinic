@@ -1,4 +1,4 @@
-package ek.vetms.clinic.security;
+/*package ek.vetms.clinic.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,17 +23,17 @@ public class VetSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers(HttpMethod.GET, "/api/v2/pets").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.GET, "/api/v2/pets/**").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.POST, "/api/v2/pets").hasRole("VET")
-                        .requestMatchers(HttpMethod.PUT, "/api/v2/pets/**").hasRole("VET")
-                        .requestMatchers(HttpMethod.DELETE, "/api/v2/pets/**").hasRole("VET")
+                        .requestMatchers(HttpMethod.GET, "/api/v3/pets/list").hasRole("OWNER")
+                        .requestMatchers(HttpMethod.GET, "/api/v3/pets/**").hasRole("OWNER")
+                        .requestMatchers(HttpMethod.POST, "/api/v3/pets").hasRole("VET")
+                        .requestMatchers(HttpMethod.PUT, "/api/v3/pets/**").hasRole("VET")
+                        .requestMatchers(HttpMethod.DELETE, "/api/v3/pets/**").hasRole("VET")
 
-                        .requestMatchers(HttpMethod.GET, "/api/v2/visits").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.GET, "/api/v2/visits/**").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.POST, "/api/v2/visits").hasRole("VET")
-                        .requestMatchers(HttpMethod.PUT, "/api/v2/visits/**").hasRole("VET")
-                        .requestMatchers(HttpMethod.DELETE, "/api/v2/visits/**").hasRole("VET")
+                        .requestMatchers(HttpMethod.GET, "/api/v3/visits").hasRole("OWNER")
+                        .requestMatchers(HttpMethod.GET, "/api/v3/visits/**").hasRole("OWNER")
+                        .requestMatchers(HttpMethod.POST, "/api/v3/visits").hasRole("VET")
+                        .requestMatchers(HttpMethod.PUT, "/api/v3/visits/**").hasRole("VET")
+                        .requestMatchers(HttpMethod.DELETE, "/api/v3/visits/**").hasRole("VET")
         );
 
         http.httpBasic(Customizer.withDefaults());
@@ -43,3 +43,4 @@ public class VetSecurityConfig {
         return http.build();
     }
 }
+*/

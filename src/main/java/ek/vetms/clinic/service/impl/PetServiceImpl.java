@@ -21,7 +21,7 @@ public class PetServiceImpl implements PetService {
     private final PetRepository repository;
 
     @Override
-    public List<Pet> findAll() {return repository.findAll();}
+    public List<Pet> findAll() {return repository.findAllByOrderByNameAsc();}
 
     @Override
     public Optional<Pet> findPetById(Long id) {
