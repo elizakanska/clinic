@@ -9,20 +9,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Refactored code based on feedback gained during demo session">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/pet-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/visit-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login/access-denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/PetRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/PetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/controller/PetControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/controller/VisitControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +72,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,63 +94,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build clinic.executor": "Run",
-    "Gradle.PetControllerTest.executor": "Debug",
-    "Gradle.PetControllerTest.testDeletePetByIdNotFound.executor": "Debug",
-    "Gradle.PetControllerTest.testEditPetByIdNotFound.executor": "Run",
-    "Gradle.PetControllerTest.testGetPetByIdNotFound.executor": "Run",
-    "Gradle.PetServiceImplTest (1).executor": "Run",
-    "Gradle.PetServiceImplTest.executor": "Coverage",
-    "Gradle.PetServiceImplTest.testDeletePetByIdNotFound.executor": "Run",
-    "Gradle.PetServiceImplTest.testDeletePetByIdSuccess.executor": "Run",
-    "Gradle.PetServiceImplTest.testEditPetByIdSuccess.executor": "Debug",
-    "Gradle.PetServiceImplTest.testFindAll.executor": "Run",
-    "Gradle.PetServiceImplTest.testFindPetByIdSuccess.executor": "Run",
-    "Gradle.PetServiceImplTest.testSavePetBlankName.executor": "Debug",
-    "Gradle.PetServiceImplTest.testSavePetNull.executor": "Run",
-    "Gradle.Tests in 'clinic.test'.executor": "Coverage",
-    "Gradle.Tests in 'ek.vetms.clinic.tests'.executor": "Coverage",
-    "Gradle.VetClinicMsApplicationTests.executor": "Run",
-    "Gradle.VisitControllerTest.executor": "Debug",
-    "Gradle.VisitControllerTest.testSaveVisitInvalidPetId.executor": "Debug",
-    "Gradle.VisitControllerTest.testSaveVisitNoPetFound.executor": "Debug",
-    "Gradle.VisitControllerTest.testSaveVisitSuccess.executor": "Debug",
-    "Gradle.VisitServiceImplTest.executor": "Coverage",
-    "Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound.executor": "Debug",
-    "HTTP Request.VetClinicMsApplication | #1.executor": "Run",
-    "HTTP Request.VetClinicMsApplication | #2.executor": "Run",
-    "HTTP Request.VetClinicMsApplication | #3.executor": "Run",
-    "HTTP Request.VetClinicMsApplication | #4.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.VetClinicMsApplication.executor": "Run",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "develop",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/eliza.kanska/Documents/sb-project/clinic/src/main/resources/templates/visits",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "swagger",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build clinic.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.PetControllerTest.testDeletePetByIdNotFound.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.PetControllerTest.testEditPetByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetControllerTest.testGetPetByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetServiceImplTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PetServiceImplTest.testDeletePetByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetServiceImplTest.testDeletePetByIdSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetServiceImplTest.testEditPetByIdSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.PetServiceImplTest.testFindAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetServiceImplTest.testFindPetByIdSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PetServiceImplTest.testSavePetBlankName.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.PetServiceImplTest.testSavePetNull.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'clinic.test'.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.Tests in 'ek.vetms.clinic.tests'.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.VetClinicMsApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.VisitControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.VisitControllerTest.testSaveVisitInvalidPetId.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.VisitControllerTest.testSaveVisitNoPetFound.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.VisitControllerTest.testSaveVisitSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.VisitServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound.executor&quot;: &quot;Debug&quot;,
+    &quot;HTTP Request.VetClinicMsApplication | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.VetClinicMsApplication | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.VetClinicMsApplication | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.VetClinicMsApplication | #4.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.VetClinicMsApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eliza.kanska/Documents/sb-project/clinic/src/main/resources/templates/visits&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\visits" />
@@ -296,6 +300,8 @@
       <workItem from="1707808909435" duration="4169000" />
       <workItem from="1707890691769" duration="4361000" />
       <workItem from="1707897998733" duration="7289000" />
+      <workItem from="1708418638324" duration="4141000" />
+      <workItem from="1708494411439" duration="10574000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -418,9 +424,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest.ic" NAME="PetServiceImplTest Coverage Results" MODIFIED="1706681305217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/clinic$VisitServiceImplTest.ic" NAME="VisitServiceImplTest Coverage Results" MODIFIED="1705925129198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/clinic$Tests_in__clinic_test_.ic" NAME="Tests in 'clinic.test' Coverage Results" MODIFIED="1705927933298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest_testFindAll.ic" NAME="PetServiceImplTest.testFindAll Coverage Results" MODIFIED="1706534571796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/clinic$Tests_in__ek_vetms_clinic_tests_.ic" NAME="Tests in 'ek.vetms.clinic.tests' Coverage Results" MODIFIED="1706883777880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/clinic$VisitServiceImplTest.ic" NAME="VisitServiceImplTest Coverage Results" MODIFIED="1705925129198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -1,11 +1,10 @@
-/*package ek.vetms.clinic.security;
+package ek.vetms.clinic.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -23,24 +22,33 @@ public class VetSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers(HttpMethod.GET, "/api/v3/pets/list").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.GET, "/api/v3/pets/**").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.POST, "/api/v3/pets").hasRole("VET")
-                        .requestMatchers(HttpMethod.PUT, "/api/v3/pets/**").hasRole("VET")
-                        .requestMatchers(HttpMethod.DELETE, "/api/v3/pets/**").hasRole("VET")
+                        .requestMatchers("/api/v3/pets/list").hasRole("OWNER")
+                        .requestMatchers("/api/v3/pets/addForm/**").hasRole("VET")
+                        .requestMatchers("/api/v3/pets/editForm/**").hasRole("VET")
+                        .requestMatchers("/api/v3/pets/delete/**").hasRole("VET")
 
-                        .requestMatchers(HttpMethod.GET, "/api/v3/visits").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.GET, "/api/v3/visits/**").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.POST, "/api/v3/visits").hasRole("VET")
-                        .requestMatchers(HttpMethod.PUT, "/api/v3/visits/**").hasRole("VET")
-                        .requestMatchers(HttpMethod.DELETE, "/api/v3/visits/**").hasRole("VET")
-        );
+                        .requestMatchers("/api/v3/visits/list").hasRole("OWNER")
+                        .requestMatchers("/api/v3/visits/addForm/**").hasRole("VET")
+                        .requestMatchers("/api/v3/visits/editForm/**").hasRole("VET")
+                        .requestMatchers("/api/v3/visits/delete/**").hasRole("VET")
 
-        http.httpBasic(Customizer.withDefaults());
+                        .anyRequest().authenticated()
+                )
+                .exceptionHandling(configurer ->
+                        configurer.
+                                accessDeniedPage("/access-denied")
+                )
+                .formLogin(form ->
+                        form
+                                .loginPage("/loginPage")
+                                .loginProcessingUrl("/authenticate")
+                                .permitAll()
+                )
+                .logout(LogoutConfigurer::permitAll
+                );
 
         http.csrf(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
 }
-*/

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, initial-scale=1">
@@ -11,11 +12,23 @@
     <h2>Visit Table</h2>
     <hr>
 
-    <a th:href="@{addForm}"
-        class="btn btn-primary btn-sm mb-3">
-        Add new visit
-    </a>
-    <a th:href="@{../pets/list}" style="float: right;">Go to list of pets</a>
+    <p style="text-align: center;">
+        <span sec:authentication="principal.username"></span>
+    </p>
+    <hr>
+
+    <div sec:authorize="hasRole('VET')">
+        <a th:href="@{addForm}" style="float: left; margin-right: 30vw;"
+           class="btn btn-primary btn-sm mb-3">
+            Add new visit
+        </a>
+    </div>
+
+    <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+
+    <a th:href="@{../pets/list}">Go to list of pets</a>
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -38,15 +51,17 @@
                 <td th:text="${visit.reason}"/>
 
                 <td>
-                    <a th:href="@{editForm(visitId=${visit.id})}"
-                        class="btn btn-info btn-sm">
-                        Edit
-                    </a>
-                    <a th:href="@{delete(visitId=${visit.id})}"
-                       class="btn btn-danger btn-sm"
-                       onclick="if (!(confirm('Are you sure you want to delete this visit?'))) return false">
-                        Delete
-                    </a>
+                    <div sec:authorize="hasRole('VET')">
+                        <a th:href="@{editForm(visitId=${visit.id})}"
+                           class="btn btn-info btn-sm">
+                            Edit
+                        </a>
+                        <a th:href="@{delete(visitId=${visit.id})}"
+                           class="btn btn-danger btn-sm"
+                           onclick="if (!(confirm('Are you sure you want to delete this visit?'))) return false">
+                            Delete
+                        </a>
+                    </div>
                 </td>
             </tr>
         </tbody>
