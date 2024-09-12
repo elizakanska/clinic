@@ -8,24 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Refactored code based on feedback gained during demo session">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login/access-denied.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Added full functionality to Thymeleaf, Spring MVC Security">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/controller/PetControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ek/vetms/clinic/tests/controller/VisitControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +61,20 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;elizakanska&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a52312ae-6cc1-4c6b-85a2-f062440f67f0" />
+        <option name="url" value="https://github.com/elizakanska/clinic.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -301,7 +300,13 @@
       <workItem from="1707890691769" duration="4361000" />
       <workItem from="1707897998733" duration="7289000" />
       <workItem from="1708418638324" duration="4141000" />
-      <workItem from="1708494411439" duration="10574000" />
+      <workItem from="1708494411439" duration="10988000" />
+      <workItem from="1709281222995" duration="9000" />
+      <workItem from="1725517861679" duration="1091000" />
+      <workItem from="1725963829250" duration="6000" />
+      <workItem from="1726072206725" duration="1094000" />
+      <workItem from="1726073628013" duration="1606000" />
+      <workItem from="1726117495035" duration="1093000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -375,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706884053914</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added full functionality to Thymeleaf, Spring MVC Security">
+      <option name="closed" value="true" />
+      <created>1708513581225</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708513581225</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +429,8 @@
     <MESSAGE value="Fixed issue with mapping, visit controller" />
     <MESSAGE value="Fixed issue with mapping, visit controller and subsequent test classes" />
     <MESSAGE value="Refactored code based on feedback gained during demo session" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code based on feedback gained during demo session" />
+    <MESSAGE value="Added full functionality to Thymeleaf, Spring MVC Security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added full functionality to Thymeleaf, Spring MVC Security" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
