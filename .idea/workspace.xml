@@ -8,14 +8,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Added full functionality to Thymeleaf, Spring MVC Security">
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Fixed outdated stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/admin-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/admin-list-users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/admin-list-vets.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/clinic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/news.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/pets.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/vet-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/vet-list-pets.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/vet-list-visits.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/vet-visit-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/vet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/temp/vet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login/payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login/register-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.1__init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.3__users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/pet-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/pet-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/visits/visit-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/visit-form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="CoverageOptionsProvider">
     <option name="myAddOrReplace" value="0" />
@@ -135,7 +160,7 @@
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eliza.kanska/Documents/sb-project/clinic/src/main/resources/templates/visits&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lietotajs/IdeaProjects/clinic/src/main/resources/temp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -153,6 +178,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\temp" />
+      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\templates\login" />
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\visits" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -306,7 +333,11 @@
       <workItem from="1725963829250" duration="6000" />
       <workItem from="1726072206725" duration="1094000" />
       <workItem from="1726073628013" duration="1606000" />
-      <workItem from="1726117495035" duration="1093000" />
+      <workItem from="1726117495035" duration="2136000" />
+      <workItem from="1727503717247" duration="1954000" />
+      <workItem from="1727511600238" duration="160000" />
+      <workItem from="1727940304668" duration="1980000" />
+      <workItem from="1728201947639" duration="11223000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -388,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708513581225</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed outdated stuff">
+      <option name="closed" value="true" />
+      <created>1726118901142</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726118901142</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +469,8 @@
     <MESSAGE value="Fixed issue with mapping, visit controller and subsequent test classes" />
     <MESSAGE value="Refactored code based on feedback gained during demo session" />
     <MESSAGE value="Added full functionality to Thymeleaf, Spring MVC Security" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added full functionality to Thymeleaf, Spring MVC Security" />
+    <MESSAGE value="Fixed outdated stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed outdated stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

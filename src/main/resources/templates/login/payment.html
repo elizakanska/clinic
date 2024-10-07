@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="lv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>Maksājuma Logs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="content">
+    <h2>Apmaksāt vizīti</h2>
+    <hr>
+
+    <p class="h4 mb-4">Veikt maksājumu</p>
+    <form th:action="@{/processPayment}" method="POST" onsubmit="return validateCardDetails()">
+        <div>
+            <label for="cardName">Kartes Īpašnieka Vārds:</label>
+            <input type="text" id="cardName" name="cardName" class="form-control mb-4 w-25" placeholder="Ievadiet savu vārdu" required />
+        </div>
+        <div>
+            <label for="cardNumber">Kartes Numurs:</label>
+            <input type="text" id="cardNumber" name="cardNumber" class="form-control mb-4 w-25" placeholder="XXXX-XXXX-XXXX-XXXX" required />
+        </div>
+        <div>
+            <label for="expiryDate">Derīguma Termiņš:</label>
+            <input type="month" id="expiryDate" name="expiryDate" class="form-control mb-4 w-25" required />
+        </div>
+        <div>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" class="form-control mb-4 w-25" placeholder="XXX" required />
+        </div>
+        <button type="submit" class="btn col-2" style="background-color: mediumseagreen">Samaksāt</button>
+    </form>
+</div>
+
+<script>
+    function validateCardDetails() {
+        const cardNumber = document.getElementById("cardNumber").value;
+        const cvv = document.getElementById("cvv").value;
+
+        // Basic validation: checking card length and CVV format
+        if (cardNumber.length !== 16 || isNaN(cardNumber)) {
+            alert("Lūdzu ievadiet derīgu kartes numuru!");
+            return false;
+        }
+        if (cvv.length !== 3 || isNaN(cvv)) {
+            alert("Lūdzu ievadiet derīgu CVV kodu!");
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

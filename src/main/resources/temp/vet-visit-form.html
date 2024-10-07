@@ -8,29 +8,23 @@
 </head>
 <body>
 <div class="content">
-    <h2>Mana Vizīte</h2>
+    <h2>Vizīte</h2>
+    <hr>
+    <p>
+        <span sec:authentication="principal.username">Lietotājs #1</span>
+    </p>
     <hr>
 
     <p class="h4 mb-4">Saglabāt vizīti</p>
     <form action="#" th:action="@{save}" th:object="${visit}" method="POST" onsubmit="return validateTime()">
         <input type="hidden" th:field="*{id}" />
-        <div>
-            <label for="petId">Izvēlēties dzīvnieku:</label>
-            <select id="petId" name="pet.id" class="form-control mb-4 w-25" th:field="*{pet.id}">
-                <option th:each="pet : ${pets}" th:value="${pet.id}" th:text="${pet.name} + ' (' + ${pet.species} + ')'" />
-            </select>
-        </div>
-        <div>
-            <label for="docId">Izvēlēties speciālistu:</label>
-            <select id="docId" name="doc.id" class="form-control mb-4 w-25" th:field="*{doc.id}">
-                <option th:each="doc : ${docs}" th:value="${doc.id}" th:text="${doc.name} + ' (' + ${doc.job} + ')'" />
-            </select>
-        </div>
+        <label for="link">Vizītes hipersaite:</label>
+        <input type="text" th:field="*{link}" id="link" class="form-control mb-4 w-25" placeholder="https://zoom.us" required>
         <div>
             <label for="time">Vizītes datums un laiks:</label>
             <input type="datetime-local" id="time" name="time" class="form-control mb-4 w-25" th:field="*{time}" required />
         </div>
-        <button type="submit" class="btn col-2" style="background-color: mediumseagreen">Samaksāt</button>
+        <button type="submit" class="btn col-2" style="background-color: mediumseagreen">Saglabāt</button>
     </form>
 
     <hr>

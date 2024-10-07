@@ -7,25 +7,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+<main>
 <div class="content">
-    <h2>Pet Table</h2>
+    <h2>Dzīvnieka rediģēšana</h2>
     <hr>
 
-    <p class="h4 mb-4">Save Pet</p>
+    <p class="h4 mb-4">Saglabāt dzīvnieku</p>
     <form action="#" th:action="@{save}" th:object="${pet}" method="POST">
         <input type="hidden" th:field="*{id}">
-        <label for="petName">Name:</label>
-        <input type="text" th:field="*{name}" id="petName" class="form-control mb-4 w-25" placeholder="Pet's name" required>
-        <label for="petSpecies">Species:</label>
-        <input type="text" th:field="*{species}" id="petSpecies" class="form-control mb-4 w-25" placeholder="Pet's species" required>
-        <label for="petAge">Age:</label>
-        <input type="text" th:field="*{age}" id="petAge" class="form-control mb-4 w-25" placeholder="Pet's age" required>
-        <button type="submit" class="btn btn-info col-2">Save</button>
+        <label for="petName">Vārds:</label>
+        <input type="text" th:field="*{name}" id="petName" class="form-control mb-4 w-25" placeholder="Dzīvnieka vārds" required>
+        <label for="petType">Tips:</label>
+        <input type="text" th:field="*{type}" id="petType" class="form-control mb-4 w-25" placeholder="Dzīvnieka tips" required>
+        <label for="petSpecies">Suga:</label>
+        <input type="text" th:field="*{species}" id="petSpecies" class="form-control mb-4 w-25" placeholder="Dzīvnieka suga" required>
+        <label for="petAge">Vecums:</label>
+        <input type="text" th:field="*{age}" id="petAge" class="form-control mb-4 w-25" placeholder="Dzīvnieka vecums" required>
+        <label for="petNotes">Piezīmes:</label>
+        <input type="text" th:field="*{notes}" id="petNotes" class="form-control mb-4 w-25" placeholder="Piezīmes par dzīvnieku">
+        <button type="submit" class="btn col-2" style="background-color: mediumseagreen">Saglabāt</button>
     </form>
 
 
     <hr>
-    <a th:href="@{list}">Return to pet list</a>
+    <a th:href="@{list}">Atpakaļ uz dzīvnieku sarakstu</a>
 </div>
+</main>
 </body>
 </html>

@@ -9,46 +9,54 @@
 </head>
 <body>
 <div class="container">
-    <h2>Mani Dzīvnieki</h2>
+    <h2>Lietotāji</h2>
     <hr>
-
-    <p style="text-align: center;">
-        <span sec:authentication="principal.username">Lietotājs #1</span>
-    </p>
-    <hr>
-
-    <div sec:authorize="hasRole('VET')">
-        <a th:href="@{addForm}" style="float: left; margin-right: 30vw; background-color: mediumseagreen"
-           class="btn btn-sm mb-3">
-            Izveidot jaunu dzīvnieku
-        </a>
-    </div>
 
     <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
         <button type="submit" class="btn btn-danger">Iziet</button>
     </form>
 
-    <a th:href="@{../visits/list}">Uz vizītēm</a>
-
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
-                <th>Vārds</th>
-                <th>Tips</th>
-                <th>Suga</th>
-                <th>Vecums</th>
-                <th>Piezīmes</th>
-                <th>Darbība</th>
+                <th>Lietotājvārds</th>
+                <th>E-pasts</th>
+                <th>Dzīvnieki</th>
+                <th>Vizītes</th>
+                <th>Admins</th>
+                <th>Darbības</th>
             </tr>
         </thead>
 
         <tbody>
             <tr th:each="pet : ${pets}">
-                <td th:text="${pet.name}"/>
-                <td th:text="${pet.type}"/>
-                <td th:text="${pet.species}"/>
-                <td th:text="${pet.age}"/>
-                <td th:text="${pet.notes}"/>
+                <td th:text="${user.name}"/>
+                <td th:text="${user.email}"/>
+                <td>
+                    <div>
+                        <a th:href="@{editForm(petId=${pet.id})}"
+                           class="btn btn-sm" style="background-color: mediumseagreen">
+                            Skatīt Dzīvniekus
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a th:href="@{editForm(petId=${pet.id})}"
+                           class="btn btn-sm" style="background-color: mediumseagreen">
+                            Skatīt vizītes
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a th:href="@{editForm(petId=${pet.id})}"
+                           class="btn btn-danger btn-sm">
+                            Pievienot/Noņemt tiesības
+                        </a>
+                    </div>
+                </td>
+
 
                 <td>
                     <div>
@@ -56,6 +64,8 @@
                            class="btn btn-sm" style="background-color: mediumseagreen">
                             Rediģēt
                         </a>
+                    </div>
+                    <div>
                         <a th:href="@{delete(petId=${pet.id})}"
                            class="btn btn-danger btn-sm"
                            onclick="if (!(confirm('Vai esat pārliecināts/a, ka vēlaties dzēst šo dzīvnieku?'))) return false">

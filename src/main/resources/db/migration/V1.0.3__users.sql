@@ -11,10 +11,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO users(username, password, enabled) VALUES
-    ('jane','{bcrypt}$2a$10$q.3w.Zlq663m/6Tm.Bzd2e4WBKhGoPO/YCUt0t.rn5M5Ku.kScfC6',1),
-    ('john','{bcrypt}$2a$10$q.3w.Zlq663m/6Tm.Bzd2e4WBKhGoPO/YCUt0t.rn5M5Ku.kScfC6',1),
-    ('doc','{bcrypt}$2a$10$q.3w.Zlq663m/6Tm.Bzd2e4WBKhGoPO/YCUt0t.rn5M5Ku.kScfC6',1);
-
+    ('jane','{bcrypt}$2a$12$VJKzDuVYceWHdzrxsWk.fO4IBy3RjVPXhFXggho1YZ9f1XHpkhzBa',1),
+    ('john','{bcrypt}$2a$12$VJKzDuVYceWHdzrxsWk.fO4IBy3RjVPXhFXggho1YZ9f1XHpkhzBa',1),
+    ('doc','{bcrypt}$2a$12$VJKzDuVYceWHdzrxsWk.fO4IBy3RjVPXhFXggho1YZ9f1XHpkhzBa',1);
+#password
 
 CREATE TABLE `authorities` (
     `username` varchar(50) NOT NULL,

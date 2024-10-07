@@ -13,31 +13,22 @@
     <hr>
 
     <p style="text-align: center;">
-        <span sec:authentication="principal.username">Lietotājs #1</span>
+        <span sec:authentication="principal.username">Speciālists #1</span>
     </p>
     <hr>
-
-    <div>
-        <a th:href="@{addForm}" style="float: left; margin-right: 30vw;background-color: mediumseagreen"
-           class="btn btn-sm mb-3">
-            Pieteikt jaunu vizīti
-        </a>
-    </div>
 
     <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
         <button type="submit" class="btn btn-danger">Iziet</button>
     </form>
 
-    <a th:href="@{../pets/list}">Uz dzīvniekiem</a>
-
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
+                <th>Saimnieks</th>
                 <th>Dzīvnieka vārds</th>
                 <th>Dzīvnieka tips</th>
                 <th>Dzīvnieka suga</th>
                 <th>Dzīvnieka vecums</th>
-                <th>Speciālists</th>
                 <th>Datums/Laiks</th>
                 <th>Konference</th>
                 <th>Darbība</th>
@@ -46,11 +37,11 @@
 
         <tbody>
             <tr th:each="visit : ${visits}">
+                <td th:text="${visit.pet.user.name}"/>
                 <td th:text="${visit.pet.name}"/>
                 <td th:text="${visit.pet.type}"/>
                 <td th:text="${visit.pet.species}"/>
                 <td th:text="${visit.pet.age}"/>
-                <td th:text="${visit.doc.name}"/>
                 <td th:text="${#temporals.format(visit.time, 'dd/MM/yyyy HH:mm')}"/>
                 <td th:text="${visit.link}"/>
 
@@ -60,10 +51,14 @@
                            class="btn btn-sm" style="background-color: mediumseagreen">
                             Rediģēt
                         </a>
+                        <a th:href="@{pets}"
+                           class="btn btn-sm" style="background-color: darkseagreen">
+                            Apskatīt dzīvnieka profilu
+                        </a>
                         <a th:href="@{delete(visitId=${visit.id})}"
                            class="btn btn-danger btn-sm"
                            onclick="if (!(confirm('Vai esat pārliecināts/a, ka vēlaties dzēst šo vizīti?'))) return false">
-                            Dzēst
+                            Atcelt
                         </a>
                     </div>
                 </td>
