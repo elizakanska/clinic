@@ -9,19 +9,12 @@
 </head>
 <body>
 <div class="container">
-    <h2>Pacients</h2>
-    <hr>
-
-    <p style="text-align: center;">
-        <span sec:authentication="principal.username">Speciālists #1</span>
-    </p>
+    <h2>Visi Dzīvnieki</h2>
     <hr>
 
     <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
         <button type="submit" class="btn btn-danger">Iziet</button>
     </form>
-
-    <a th:href="@{../visits/list}">Uz vizītēm</a>
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -32,6 +25,7 @@
                 <th>Suga</th>
                 <th>Vecums</th>
                 <th>Piezīmes</th>
+                <th>Dabības</th>
             </tr>
         </thead>
 
@@ -43,6 +37,15 @@
                 <td th:text="${pet.species}"/>
                 <td th:text="${pet.age}"/>
                 <td th:text="${pet.notes}"/>
+                <td>
+                    <div>
+                        <a th:href="@{delete(petId=${pet.id})}"
+                           class="btn btn-danger btn-sm"
+                           onclick="if (!(confirm('Vai esat pārliecināts/a, ka vēlaties dzēst šo dzīvnieku?'))) return false">
+                            Dzēst
+                        </a>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

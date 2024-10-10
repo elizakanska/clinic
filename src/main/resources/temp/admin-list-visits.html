@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>Manas Vizītes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>Visas Vizītes</h2>
+    <hr>
+
+    <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
+        <button type="submit" class="btn btn-danger">Iziet</button>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Saimnieks</th>
+                <th>Dzīvnieka vārds</th>
+                <th>Dzīvnieka tips</th>
+                <th>Dzīvnieka suga</th>
+                <th>Dzīvnieka vecums</th>
+                <th>Datums/Laiks</th>
+                <th>Speciālists</th>
+                <th>Konference</th>
+                <th>Darbība</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="visit : ${visits}">
+                <td th:text="${visit.pet.user.name}"/>
+                <td th:text="${visit.pet.name}"/>
+                <td th:text="${visit.pet.type}"/>
+                <td th:text="${visit.pet.species}"/>
+                <td th:text="${visit.pet.age}"/>
+                <td th:text="${#temporals.format(visit.time, 'dd/MM/yyyy HH:mm')}"/>
+                <td th:text="${visit.doc}"/>
+                <td th:text="${visit.link}"/>
+
+                <td>
+                    <div sec:authorize="hasRole('VET')">
+                        <a th:href="@{delete(visitId=${visit.id})}"
+                           class="btn btn-danger btn-sm"
+                           onclick="if (!(confirm('Vai esat pārliecināts/a, ka vēlaties dzēst šo vizīti?'))) return false">
+                            Dzēst
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
