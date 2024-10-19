@@ -55,6 +55,7 @@ public class VisitServiceImpl implements VisitService {
         }
     }
 
+    //Vajag pievienot čeku, vavi vizītes sākuma laiks nav 30-60 min robežās no citas vizītes (pie tā paša vet) sākuma laika
     @Override
     public ResponseEntity<Visit> saveVisit(Visit visit) {
         LocalTime visitTime = visit.getTime().toLocalTime();
@@ -84,6 +85,7 @@ public class VisitServiceImpl implements VisitService {
     }
 
 
+    //Jāpārveido uz jauno 'Visit' objektu
     @Override
     public ResponseEntity<Visit> editVisitById(Long id, Visit visit) {
         log.info("Updating entry for visit with given id {}.", id);

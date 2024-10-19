@@ -14,7 +14,8 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("api/v3/visits")
+@RequestMapping("visits")
+//jāpārveido, lai visas formas ved uz modāļiem nevis jaunām html lapām
 public class VisitController {
     private final VisitService service;
     private final PetService petService;

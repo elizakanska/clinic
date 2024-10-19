@@ -39,6 +39,7 @@ public class PetServiceImpl implements PetService {
     }
 
 
+    //Jāpārveido šī brīža 'Pet' klasei
     @Override
     public ResponseEntity<Pet> editPetById(Long id, Pet pet) {
         log.info("Updating entry for pet with given id {}.", id);

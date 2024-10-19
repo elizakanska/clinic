@@ -19,6 +19,8 @@ public class VetSecurityConfig {
         return new JdbcUserDetailsManager(dataSource);
     }
     @Bean
+    //Jāpārveido, lai konkrētais saimnieks vai vetārsts redz savus konkrētos objektus, admins redz visu
+    // šis būs sarežģītāk kā citi uzdevumi
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configurer ->
                 configurer
