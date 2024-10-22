@@ -107,7 +107,6 @@ public class VisitServiceImpl implements VisitService {
         Visit existingVisit = visitToEdit.get();
         existingVisit.setPet(visit.getPet());
         existingVisit.setTime(visit.getTime());
-        existingVisit.setReason(visit.getReason());
 
         Visit updatedVisit = repository.save(existingVisit);
         log.info("Visit with id {} updated.", id);
