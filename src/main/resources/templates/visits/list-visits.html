@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manas Vizītes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -17,13 +16,12 @@
     </p>
     <hr>
 
-    <div>
-        <a th:href="@{addForm}" style="float: left; margin-right: 30vw;background-color: mediumseagreen"
-           class="btn btn-sm mb-3">
-            Pieteikt jaunu vizīti
-        </a>
-    </div>
+    <!-- Button to trigger the modal for creating a new visit -->
+    <button type="button" class="btn btn-primary mb-3" onclick="openVisitFormModal()">
+        Pieteikt jaunu vizīti
+    </button>
 
+    <!-- Logout button -->
     <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
         <button type="submit" class="btn btn-danger">Iziet</button>
     </form>
@@ -32,44 +30,95 @@
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
-            <tr>
-                <th>Dzīvnieka vārds</th>
-                <th>Dzīvnieka tips</th>
-                <th>Dzīvnieka suga</th>
-                <th>Dzīvnieka vecums</th>
-                <th>Speciālists</th>
-                <th>Datums/Laiks</th>
-                <th>Konference</th>
-                <th>Darbība</th>
-            </tr>
+        <tr>
+            <th>Dzīvnieka vārds</th>
+            <th>Dzīvnieka tips</th>
+            <th>Dzīvnieka suga</th>
+            <th>Dzīvnieka vecums</th>
+            <th>Speciālists</th>
+            <th>Datums/Laiks</th>
+            <th>Konference</th>
+            <th>Darbība</th>
+        </tr>
         </thead>
-
         <tbody>
-            <tr th:each="visit : ${visits}">
-                <td th:text="${visit.pet.name}"/>
-                <td th:text="${visit.pet.type}"/>
-                <td th:text="${visit.pet.species}"/>
-                <td th:text="${visit.pet.age}"/>
-                <td th:text="${visit.doc.name}"/>
-                <td th:text="${#temporals.format(visit.time, 'dd/MM/yyyy HH:mm')}"/>
-                <td th:text="${visit.link}"/>
-
-                <td>
-                    <div sec:authorize="hasRole('VET')">
-                        <a th:href="@{editForm(visitId=${visit.id})}"
-                           class="btn btn-sm" style="background-color: mediumseagreen">
-                            Rediģēt
-                        </a>
-                        <a th:href="@{delete(visitId=${visit.id})}"
-                           class="btn btn-danger btn-sm"
-                           onclick="if (!(confirm('Vai esat pārliecināts/a, ka vēlaties dzēst šo vizīti?'))) return false">
-                            Dzēst
-                        </a>
-                    </div>
-                </td>
-            </tr>
+        <tr th:each="visit : ${visits}">
+            <td th:text="${visit.pet.name}"></td>
+            <td th:text="${visit.pet.type}"></td>
+            <td th:text="${visit.pet.species}"></td>
+            <td th:text="${visit.pet.age}"></td>
+            <td th:text="${visit.doc.name}"></td>
+            <td th:text="${#temporals.format(visit.time, 'dd/MM/yyyy HH:mm')}"></td>
+            <td th:text="${visit.link}"></td>
+            <td>
+                <div sec:authorize="hasRole('VET')">
+                    <a th:href="@{editForm(visitId=${visit.id})}" class="btn btn-sm" style="background-color: mediumseagreen">
+                        Rediģēt
+                    </a>
+                    <a th:href="@{delete(visitId=${visit.id})}" class="btn btn-danger btn-sm" onclick="if (!(confirm('Vai esat pārliecināts/a, ka vēlaties dzēst šo vizīti?'))) return false">
+                        Dzēst
+                    </a>
+                </div>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>
+
+<!-- Modal for Visit Form -->
+<div class="modal fade" id="visitModal" tabindex="-1" aria-labelledby="visitModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="visitModalLabel">Saglabāt vizīti</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="visitForm" th:action="@{save}" th:object="${visit}" method="POST" onsubmit="return validateTime()">
+                    <input type="hidden" th:field="*{id}" />
+                    <div class="mb-3">
+                        <label for="petId">Izvēlēties dzīvnieku:</label>
+                        <select id="petId" name="pet.id" class="form-control" th:field="*{pet.id}">
+                            <option th:each="pet : ${pets}" th:value="${pet.id}" th:text="${pet.name} + ' (' + ${pet.species} + ')'"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="docId">Izvēlēties speciālistu:</label>
+                        <select id="docId" name="doc.id" class="form-control" th:field="*{doc.id}">
+                            <option th:each="doc : ${docs}" th:value="${doc.id}" th:text="${doc.name} + ' (' + ${doc.job} + ')'"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="time">Vizītes datums un laiks:</label>
+                        <input type="datetime-local" id="time" name="time" class="form-control" th:field="*{time}" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Maksāt/Saglabāt</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Bootstrap and Validation Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function validateTime() {
+        const inputTime = new Date(document.getElementById("time").value);
+        const day = inputTime.getDay();
+        const hours = inputTime.getHours();
+
+        if (day !== 0 && day !== 6 && hours >= 9 && hours <= 17) {
+            return true;
+        } else {
+            alert("Speciālists nav pieejams šajā laikā, lūdzu izvēlaties citu!");
+            return false;
+        }
+    }
+
+    function openVisitFormModal() {
+        var myModal = new bootstrap.Modal(document.getElementById('visitModal'));
+        myModal.show();
+    }
+</script>
 </body>
 </html>

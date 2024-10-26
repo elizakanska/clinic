@@ -10,29 +10,88 @@
 <body>
 <main>
     <div class="content">
-    <h3 class="mt-4">Pieslēgties</h3>
-    <hr>
-    <form th:action="@{/authenticate}" method="POST">
-<!--
-        <div th:if="${param.logout}" class="text-success mb-3">
-            <i><b>Jūs šobrīd neesat pieslēdzies</b></i>
+        <h3 class="mt-4">Pieslēgties/Reģistrēties</h3>
+        <hr>
+
+        <!-- Poga, kas atver pieslēgšanās formu modālī -->
+        <button type="button" class="btn btn-primary mb-4" onclick="openLoginModal()">Pieslēgties</button>
+
+        <!-- Poga, kas atver reģistrēšanās formu modālī -->
+        <button type="button" class="btn btn-secondary mb-4" onclick="openRegisterModal()">Reģistrēties</button>
+    </div>
+
+    <!-- Pieslēgšanās forma modālī -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Pieslēgties</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/authenticate}" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Lietotājvārds:</label>
+                            <input type="text" id="username" name="username" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Parole:</label>
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Pieslēgties</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div th:if="${param.error}" class="text-danger mb-3">
-            <i><b>Nepareizs lietotājvārds vai parole</b></i>
+    </div>
+
+    <!-- Reģistrēšanās forma modālī -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Reģistrēties</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/register}" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Lietotājvārds:</label>
+                            <input type="text" id="username" name="username" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-pasts:</label>
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Parole:</label>
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordAgain" class="form-label">Parole atkārtoti:</label>
+                            <input type="password" id="passwordAgain" name="passwordAgain" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Reģistrēties</button>
+                    </form>
+                </div>
+            </div>
         </div>
--->
-        <div class="mb-3">
-            <label for="username" class="form-label">Lietotājvārds:</label>
-            <input type="text" id="username" name="username" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Parole:</label>
-            <input type="password" id="password" name="password" class="form-control">
-        </div>
-        <button type="submit" class="btn" style="background-color: mediumseagreen">Pieslēgties</button>
-        <button type="" class="btn" style="background-color: mediumseagreen">Reģistrēties</button>
-    </form>
-</div>
+    </div>
+
+    <!-- JavaScript, lai atvērtu modāļus -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openLoginModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            myModal.show();
+        }
+
+        function openRegisterModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            myModal.show();
+        }
+    </script>
+
 </main>
 </body>
 </html>
