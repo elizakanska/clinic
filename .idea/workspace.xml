@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Basic endpoints for everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/pet-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/pet-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/visits/list-visits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +277,8 @@
       <workItem from="1705391703347" duration="13827000" />
       <workItem from="1705572681541" duration="765000" />
       <workItem from="1729785535060" duration="3278000" />
-      <workItem from="1729946000045" duration="2558000" />
+      <workItem from="1729946000045" duration="2917000" />
+      <workItem from="1730104271941" duration="1483000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -330,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705398591119</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Basic endpoints for everything">
+      <option name="closed" value="true" />
+      <created>1729948810856</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729948810856</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
