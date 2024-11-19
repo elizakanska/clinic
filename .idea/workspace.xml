@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.1__init.sql" afterDir="false" />
-    </list>
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="pievienoju savu zaru" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
-  <component name="CoverageOptionsProvider">
-    <option name="myAddOrReplace" value="0" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -37,12 +21,7 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
@@ -51,7 +30,6 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -66,17 +44,15 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;elizakanska&quot;
+    &quot;assignee&quot;: &quot;VinetaBitte&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="a52312ae-6cc1-4c6b-85a2-f062440f67f0" />
-        <option name="url" value="https://github.com/elizakanska/clinic.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/elizakanska/clinic.git&quot;,
+    &quot;accountId&quot;: &quot;217c8543-36d4-463c-a377-97c81d7d1f58&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -84,7 +60,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
+  &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2alWdw5FmM55PQVVHQyXIkE3hPv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -96,34 +72,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Gradle.Build clinic.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetControllerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetControllerTest.testDeletePetByIdNotFound.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetControllerTest.testEditPetByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetControllerTest.testGetPetByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PetServiceImplTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.PetServiceImplTest.testDeletePetByIdNotFound.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.PetServiceImplTest.testDeletePetByIdSuccess.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.PetServiceImplTest.testEditPetByIdSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetServiceImplTest.testFindAll.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.PetServiceImplTest.testFindPetByIdSuccess.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.PetServiceImplTest.testSavePetBlankName.executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.PetServiceImplTest.testSavePetNull.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'clinic.test'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'ek.vetms.clinic.tests'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.VetClinicMsApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.VisitControllerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitControllerTest.testSaveVisitInvalidPetId.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitControllerTest.testSaveVisitNoPetFound.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitControllerTest.testSaveVisitSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.VisitServiceImplTest.executor&quot;: &quot;Debug&quot;,
     &quot;HTTP Request.VetClinicMsApplication | #1.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.VetClinicMsApplication | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.VetClinicMsApplication | #3.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.VetClinicMsApplication | #4.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -131,19 +90,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.VetClinicMsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Vineta&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lietotajs/IdeaProjects/clinic/src/main/resources/temp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eliza.kanska/IdeaProjects/staffing-service_1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -152,25 +108,8 @@
     ]
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\temp" />
-      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\templates\login" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\visits" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\pets" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\static" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic\controller" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ek.vetms.clinic.controller" />
-    </key>
-  </component>
   <component name="RunManager" selected="Spring Boot.VetClinicMsApplication">
-    <configuration name="Tests in 'ek.vetms.clinic.tests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetServiceImplTest.testDeletePetByIdNotFound" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -183,7 +122,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ek.vetms.clinic.tests.*&quot;" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testDeletePetByIdNotFound&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -194,7 +133,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="VisitControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetServiceImplTest.testDeletePetByIdSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -207,7 +146,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ek.vetms.clinic.tests.controller.VisitControllerTest&quot;" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testDeletePetByIdSuccess&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -218,7 +157,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="VisitServiceImplTest.testEditVisitPetDetailsNotFound" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetServiceImplTest.testEditPetByIdSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -231,7 +170,55 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ek.vetms.clinic.tests.impl.VisitServiceImplTest.testEditVisitPetDetailsNotFound&quot;" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testEditPetByIdSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PetServiceImplTest.testSavePetNull" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.PetServiceImplTest.testSavePetNull&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="VisitServiceImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ek.vetms.clinic.business.service.impl.VisitServiceImplTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -250,27 +237,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Gradle.VisitControllerTest" />
-      <item itemvalue="Gradle.Tests in 'ek.vetms.clinic.tests'" />
-      <item itemvalue="Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound" />
-      <item itemvalue="Spring Boot.VetClinicMsApplication" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound" />
-        <item itemvalue="Gradle.Tests in 'ek.vetms.clinic.tests'" />
-        <item itemvalue="Gradle.VisitControllerTest" />
-        <item itemvalue="Gradle.Tests in 'ek.vetms.clinic.tests'" />
-        <item itemvalue="Gradle.VisitControllerTest" />
+        <item itemvalue="Gradle.VisitServiceImplTest" />
+        <item itemvalue="Gradle.PetServiceImplTest.testDeletePetByIdNotFound" />
+        <item itemvalue="Gradle.PetServiceImplTest.testDeletePetByIdSuccess" />
+        <item itemvalue="Gradle.PetServiceImplTest.testEditPetByIdSuccess" />
+        <item itemvalue="Gradle.PetServiceImplTest.testSavePetNull" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -288,48 +269,8 @@
       <workItem from="1705308660441" duration="4581000" />
       <workItem from="1705391703347" duration="13827000" />
       <workItem from="1705572681541" duration="765000" />
-      <workItem from="1705906864132" duration="7940000" />
-      <workItem from="1705994760141" duration="7648000" />
-      <workItem from="1706095583364" duration="5529000" />
-      <workItem from="1706176908342" duration="9741000" />
-      <workItem from="1706520182060" duration="214000" />
-      <workItem from="1706520476986" duration="2557000" />
-      <workItem from="1706530488992" duration="5311000" />
-      <workItem from="1706611047340" duration="6442000" />
-      <workItem from="1706680884839" duration="12259000" />
-      <workItem from="1706769949861" duration="1602000" />
-      <workItem from="1706865099889" duration="17597000" />
-      <workItem from="1707808909435" duration="4169000" />
-      <workItem from="1707890691769" duration="4361000" />
-      <workItem from="1707897998733" duration="7289000" />
-      <workItem from="1708418638324" duration="4141000" />
-      <workItem from="1708494411439" duration="10988000" />
-      <workItem from="1709281222995" duration="9000" />
-      <workItem from="1725517861679" duration="1091000" />
-      <workItem from="1725963829250" duration="6000" />
-      <workItem from="1726072206725" duration="1094000" />
-      <workItem from="1726073628013" duration="1606000" />
-      <workItem from="1726117495035" duration="2136000" />
-      <workItem from="1727503717247" duration="1954000" />
-      <workItem from="1727511600238" duration="160000" />
-      <workItem from="1727940304668" duration="1980000" />
-      <workItem from="1728201947639" duration="11223000" />
-      <workItem from="1728285570396" duration="134000" />
-      <workItem from="1728285938282" duration="54000" />
-      <workItem from="1728290369105" duration="761000" />
-      <workItem from="1728370864559" duration="38000" />
-      <workItem from="1728371570267" duration="55000" />
-      <workItem from="1728373601146" duration="1385000" />
-      <workItem from="1728396446606" duration="51000" />
-      <workItem from="1728396644891" duration="1395000" />
-      <workItem from="1728537446325" duration="3828000" />
-      <workItem from="1728544692556" duration="1904000" />
-      <workItem from="1728979412926" duration="112000" />
-      <workItem from="1729145769056" duration="1567000" />
-      <workItem from="1729181817490" duration="7000" />
-      <workItem from="1729333600487" duration="3978000" />
-      <workItem from="1729495368181" duration="2377000" />
-      <workItem from="1729591889860" duration="338000" />
+      <workItem from="1730287423323" duration="2805000" />
+      <workItem from="1730354625771" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -379,71 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705398591119</updated>
     </task>
-    <task id="LOCAL-00007" summary="Fixed issue with mapping, visit controller and subsequent test classes">
+    <task id="LOCAL-00007" summary="pievienoju savu zaru">
       <option name="closed" value="true" />
-      <created>1705860119656</created>
+      <created>1730354725875</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1705860119656</updated>
+      <updated>1730354725875</updated>
     </task>
-    <task id="LOCAL-00008" summary="Refactored code based on feedback gained during demo session">
-      <option name="closed" value="true" />
-      <created>1706883993212</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1706883993212</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Refactored code based on feedback gained during demo session">
-      <option name="closed" value="true" />
-      <created>1706884053914</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1706884053914</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added full functionality to Thymeleaf, Spring MVC Security">
-      <option name="closed" value="true" />
-      <created>1708513581225</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1708513581225</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fixed outdated stuff">
-      <option name="closed" value="true" />
-      <created>1726118901142</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1726118901142</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Nomainīju valodu un pievienoju daudz jaunus failus. RUN NESTRĀDĀ ŠOBRĪD!!">
-      <option name="closed" value="true" />
-      <created>1728285669855</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1728285669855</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Salaboju datubāzes migrāciju, tagad vismaz pati datubāze atbilst prasībām">
-      <option name="closed" value="true" />
-      <created>1728539456988</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1728539456988</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties">
-      <option name="closed" value="true" />
-      <created>1729339422039</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1729339422039</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,26 +365,7 @@
     <MESSAGE value="Basic Controllers (no Api yet)" />
     <MESSAGE value="Minor edits" />
     <MESSAGE value="Basic endpoints for everything" />
-    <MESSAGE value="Implementation of Visit Controller Test class" />
-    <MESSAGE value="Fixed issue with mapping, visit controller" />
-    <MESSAGE value="Fixed issue with mapping, visit controller and subsequent test classes" />
-    <MESSAGE value="Refactored code based on feedback gained during demo session" />
-    <MESSAGE value="Added full functionality to Thymeleaf, Spring MVC Security" />
-    <MESSAGE value="Fixed outdated stuff" />
-    <MESSAGE value="Nomainīju valodu un pievienoju daudz jaunus failus. RUN NESTRĀDĀ ŠOBRĪD!!" />
-    <MESSAGE value="Salaboju datubāzes migrāciju, tagad vismaz pati datubāze atbilst prasībām" />
-    <MESSAGE value="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest.ic" NAME="PetServiceImplTest Coverage Results" MODIFIED="1706681305217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/clinic$VisitServiceImplTest.ic" NAME="VisitServiceImplTest Coverage Results" MODIFIED="1705925129198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/clinic$Tests_in__clinic_test_.ic" NAME="Tests in 'clinic.test' Coverage Results" MODIFIED="1705927933298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest_testFindAll.ic" NAME="PetServiceImplTest.testFindAll Coverage Results" MODIFIED="1706534571796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/clinic$Tests_in__ek_vetms_clinic_tests_.ic" NAME="Tests in 'ek.vetms.clinic.tests' Coverage Results" MODIFIED="1706883777880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <MESSAGE value="pievienoju savu zaru" />
+    <option name="LAST_COMMIT_MESSAGE" value="pievienoju savu zaru" />
   </component>
 </project>
