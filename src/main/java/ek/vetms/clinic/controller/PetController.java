@@ -30,7 +30,7 @@ public class PetController {
 
         model.addAttribute("pet", pet);
 
-        return "pets/pet-form";
+        return "pets/pet-form :: form-content";
     }
 
     @GetMapping("/editForm")
@@ -39,7 +39,7 @@ public class PetController {
         if (optionalPet.isPresent()) {
             Pet pet = optionalPet.get();
             model.addAttribute("pet", pet);
-            return "pets/pet-form";
+            return "pets/pet-form :: form-content";
         } else {
             return "redirect:/petNotFound";
         }
