@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pieslēgties</title>
+    <link rel="stylesheet" href="../../temp/vet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<main>
+    <div class="content">
+    <h3 class="mt-4">Pieslēgties</h3>
+    <hr>
+    <form th:action="@{/authenticate}" method="POST">
+<!--
+        <div th:if="${param.logout}" class="text-success mb-3">
+            <i><b>Jūs šobrīd neesat pieslēdzies</b></i>
+        </div>
+        <div th:if="${param.error}" class="text-danger mb-3">
+            <i><b>Nepareizs lietotājvārds vai parole</b></i>
+        </div>
+-->
+        <div class="mb-3">
+            <label for="username" class="form-label">Lietotājvārds:</label>
+            <input type="text" id="username" name="username" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Parole:</label>
+            <input type="password" id="password" name="password" class="form-control">
+        </div>
+        <button type="submit" class="btn" style="background-color: mediumseagreen">Pieslēgties</button>
+        <button type="" class="btn" style="background-color: mediumseagreen">Reģistrēties</button>
+    </form>
+</div>
+</main>
+</body>
+</html>

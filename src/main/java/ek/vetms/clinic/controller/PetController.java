@@ -3,45 +3,59 @@ package ek.vetms.clinic.controller;
 import ek.vetms.clinic.entity.Pet;
 import ek.vetms.clinic.service.PetService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 @AllArgsConstructor
 @Controller
 @RequestMapping("pets")
+//jāpārveido, lai visas formas ved uz modāļiem nevis jaunām html lapām
 public class PetController {
     private final PetService service;
 
     @GetMapping("/list")
-    public String listPets(Model model) {
+    public String listPets(Model model){
         List<Pet> pets = service.findAll();
         model.addAttribute("pets", pets);
+
         return "pets/list-pets";
     }
 
-    @GetMapping("/data/{petId}")
-    @ResponseBody
-    public ResponseEntity<Pet> getPetData(@PathVariable("petId") Long id) {
+    @GetMapping("/addForm")
+    public String addForm(Model model){
+        Pet pet = new Pet();
+
+        model.addAttribute("pet", pet);
+
+        return "pets/pet-form :: form-content";
+    }
+
+    @GetMapping("/editForm")
+    public String editForm(@RequestParam("petId") Long id, Model model){
         Optional<Pet> optionalPet = service.findPetById(id);
-        return optionalPet.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        if (optionalPet.isPresent()) {
+            Pet pet = optionalPet.get();
+            model.addAttribute("pet", pet);
+            return "pets/pet-form :: form-content";
+        } else {
+            return "redirect:/petNotFound";
+        }
     }
 
     @PostMapping("/save")
-    @ResponseBody
-    public ResponseEntity<String> savePet(@RequestBody Pet pet) {
+    public String savePet(@ModelAttribute("pet") Pet pet){
         service.savePet(pet);
-        return ResponseEntity.ok("Pet saved successfully!");
+
+        return "redirect:list";
     }
 
-    @DeleteMapping("/delete/{petId}")
-    @ResponseBody
-    public ResponseEntity<String> deletePet(@PathVariable("petId") Long id) {
+    @GetMapping("/delete")
+    public String delete(@RequestParam("petId") Long id){
         service.deletePetById(id);
-        return ResponseEntity.ok("Pet deleted successfully!");
+
+        return "redirect:list";
     }
 }
