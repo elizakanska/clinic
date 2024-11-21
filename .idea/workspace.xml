@@ -8,12 +8,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties, pabeidzu DB labojumus">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/docs/list-docs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/par-mums.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/repository/VisitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/service/impl/VisitServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.1__init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/controller/VisitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ek/vetms/clinic/security/VetSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/admin-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temp/admin-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/clinic.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/media/clinic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/news.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/media/news.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/pets.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/media/pets.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/media/user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/vet-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/docs/vet-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/vet-list-pets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/docs/vet-list-pets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/vet-list-visits.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/docs/vet-list-visits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/vet-visit-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/docs/vet-visit-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/vet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/media/vet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/vet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/media/vet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/access-denied.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/login-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/payment/payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/register-page.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,15 +80,14 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="eliza" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;elizakanska&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">
@@ -76,6 +97,9 @@
         <option name="url" value="https://github.com/elizakanska/clinic.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/6.3.3/b321533f214432aca2f34cd6e48c41c0da66ec93/spring-security-config-6.3.3-sources.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,64 +118,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.Build clinic.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetControllerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetControllerTest.testDeletePetByIdNotFound.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetControllerTest.testEditPetByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetControllerTest.testGetPetByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.PetServiceImplTest.testDeletePetByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest.testDeletePetByIdSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest.testEditPetByIdSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetServiceImplTest.testFindAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest.testFindPetByIdSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PetServiceImplTest.testSavePetBlankName.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.PetServiceImplTest.testSavePetNull.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'clinic.test'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'ek.vetms.clinic.tests'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.VetClinicMsApplicationTests.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.VisitControllerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitControllerTest.testSaveVisitInvalidPetId.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitControllerTest.testSaveVisitNoPetFound.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitControllerTest.testSaveVisitSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.VisitServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound.executor&quot;: &quot;Debug&quot;,
-    &quot;HTTP Request.VetClinicMsApplication | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.VetClinicMsApplication | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.VetClinicMsApplication | #3.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.VetClinicMsApplication | #4.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.VetClinicMsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lietotajs/IdeaProjects/clinic/src/main/resources/temp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Build clinic.executor": "Run",
+    "Gradle.PetControllerTest.executor": "Debug",
+    "Gradle.PetControllerTest.testDeletePetByIdNotFound.executor": "Debug",
+    "Gradle.PetControllerTest.testEditPetByIdNotFound.executor": "Run",
+    "Gradle.PetControllerTest.testGetPetByIdNotFound.executor": "Run",
+    "Gradle.PetServiceImplTest (1).executor": "Run",
+    "Gradle.PetServiceImplTest.executor": "Coverage",
+    "Gradle.PetServiceImplTest.testDeletePetByIdNotFound.executor": "Run",
+    "Gradle.PetServiceImplTest.testDeletePetByIdSuccess.executor": "Run",
+    "Gradle.PetServiceImplTest.testEditPetByIdSuccess.executor": "Debug",
+    "Gradle.PetServiceImplTest.testFindAll.executor": "Run",
+    "Gradle.PetServiceImplTest.testFindPetByIdSuccess.executor": "Run",
+    "Gradle.PetServiceImplTest.testSavePetBlankName.executor": "Debug",
+    "Gradle.PetServiceImplTest.testSavePetNull.executor": "Run",
+    "Gradle.Tests in 'clinic.test'.executor": "Coverage",
+    "Gradle.Tests in 'ek.vetms.clinic.tests'.executor": "Coverage",
+    "Gradle.VetClinicMsApplicationTests.executor": "Run",
+    "Gradle.VisitControllerTest.executor": "Debug",
+    "Gradle.VisitControllerTest.testSaveVisitInvalidPetId.executor": "Debug",
+    "Gradle.VisitControllerTest.testSaveVisitNoPetFound.executor": "Debug",
+    "Gradle.VisitControllerTest.testSaveVisitSuccess.executor": "Debug",
+    "Gradle.VisitServiceImplTest.executor": "Coverage",
+    "Gradle.VisitServiceImplTest.testEditVisitPetDetailsNotFound.executor": "Debug",
+    "HTTP Request.VetClinicMsApplication | #1.executor": "Run",
+    "HTTP Request.VetClinicMsApplication | #2.executor": "Run",
+    "HTTP Request.VetClinicMsApplication | #3.executor": "Run",
+    "HTTP Request.VetClinicMsApplication | #4.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.VetClinicMsApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Lietotajs/IdeaProjects/clinic/src/main/resources/temp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\temp" />
@@ -159,11 +183,11 @@
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\visits" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\templates\docs" />
+      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\static\media" />
+      <recent name="C:\Users\Lietotajs\IdeaProjects\clinic\src\main\resources\templates" />
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\" />
       <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates\pets" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\templates" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\resources\static" />
-      <recent name="C:\Users\eliza.kanska\Documents\sb-project\clinic\src\main\java\ek\vetms\clinic\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ek.vetms.clinic.controller" />
@@ -329,7 +353,14 @@
       <workItem from="1729181817490" duration="7000" />
       <workItem from="1729333600487" duration="3978000" />
       <workItem from="1729495368181" duration="2377000" />
-      <workItem from="1729591889860" duration="338000" />
+      <workItem from="1729591889860" duration="781000" />
+      <workItem from="1729609772759" duration="1304000" />
+      <workItem from="1729746795119" duration="4467000" />
+      <workItem from="1729833785814" duration="65000" />
+      <workItem from="1730643084731" duration="340000" />
+      <workItem from="1730733195401" duration="96000" />
+      <workItem from="1732012609824" duration="4700000" />
+      <workItem from="1732173286864" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="Blank canvas">
       <option name="closed" value="true" />
@@ -443,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729339422039</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties, pabeidzu DB labojumus">
+      <option name="closed" value="true" />
+      <created>1729592662931</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729592662931</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +499,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="eliza" />
                       </list>
                     </value>
                   </entry>
@@ -489,7 +528,8 @@
     <MESSAGE value="Nomainīju valodu un pievienoju daudz jaunus failus. RUN NESTRĀDĀ ŠOBRĪD!!" />
     <MESSAGE value="Salaboju datubāzes migrāciju, tagad vismaz pati datubāze atbilst prasībām" />
     <MESSAGE value="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties" />
+    <MESSAGE value="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties, pabeidzu DB labojumus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sakārtoju Entity un Repository objektus, piekārtoju index.html, lai ir ar login/register modāli, pievienoju komentārus backend klasēm, kuras būs vēl jāmaina, lai vieglāk orientēties, pabeidzu DB labojumus" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

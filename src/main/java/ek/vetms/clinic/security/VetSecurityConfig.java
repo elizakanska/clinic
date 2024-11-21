@@ -15,41 +15,29 @@ import javax.sql.DataSource;
 public class VetSecurityConfig {
 
     @Bean
-    public UserDetailsManager userDetailsManager(DataSource dataSource){
+    public UserDetailsManager userDetailsManager(DataSource dataSource) {
         return new JdbcUserDetailsManager(dataSource);
     }
+
     @Bean
-    //Jāpārveido, lai konkrētais saimnieks vai vetārsts redz savus konkrētos objektus, admins redz visu
-    // šis būs sarežģītāk kā citi uzdevumi
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
-                configurer
-                        .requestMatchers("/api/v3/pets/list").hasRole("OWNER")
-                        .requestMatchers("/api/v3/pets/addForm/**").hasRole("VET")
-                        .requestMatchers("/api/v3/pets/editForm/**").hasRole("VET")
-                        .requestMatchers("/api/v3/pets/delete/**").hasRole("VET")
+                        configurer
+                                // Allow everyone to access the homepage and 'About Us' page
+                                .requestMatchers("/", "/par-mums").permitAll()
 
-                        .requestMatchers("/api/v3/visits/list").hasRole("OWNER")
-                        .requestMatchers("/api/v3/visits/addForm/**").hasRole("VET")
-                        .requestMatchers("/api/v3/visits/editForm/**").hasRole("VET")
-                        .requestMatchers("/api/v3/visits/delete/**").hasRole("VET")
+                                // Require authentication for all other requests
+                                .anyRequest().authenticated()
+                )
+                .exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied"))
+                .formLogin(form -> form
+                        .loginProcessingUrl("/authenticate")  // The endpoint for form submission
+                        .permitAll()  // Allow everyone to access the login processing
+                        .successForwardUrl("/")  // Redirect to home after successful login
+                )
+                .logout(LogoutConfigurer::permitAll);
 
-                        .anyRequest().authenticated()
-                )
-                .exceptionHandling(configurer ->
-                        configurer.
-                                accessDeniedPage("/access-denied")
-                )
-                .formLogin(form ->
-                        form
-                                .loginPage("/loginPage")
-                                .loginProcessingUrl("/authenticate")
-                                .permitAll()
-                )
-                .logout(LogoutConfigurer::permitAll
-                );
-
-        http.csrf(AbstractHttpConfigurer::disable);
+        http.csrf(AbstractHttpConfigurer::disable);  // Disable CSRF for simplicity; consider securing it later
 
         return http.build();
     }

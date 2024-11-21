@@ -2,7 +2,7 @@
 <html lang="lv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vet.css">
+    <link th:href="@{/media/vet.css}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sākums</title>
@@ -16,19 +16,18 @@
 <nav>
     <ul class="nav justify-content-center">
         <li class="nav-item"><a class="nav-link" href="#">SĀKUMS</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">MANI DZĪVNIEKI</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">MANAS VIZĪTES</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">SPECIĀLISTI</a></li>
         <li class="nav-item"><a class="nav-link" href="#">PAR MUMS</a></li>
         <li class="nav-item"><a class="nav-link" href="#" id="authBtn" data-toggle="modal" data-target="#loginModal">PIESLĒGTIES</a></li>
     </ul>
 </nav>
+
 <main>
     <div class="content">
-        <div class="big-gallery">
+        <!-- OWNER Section -->
+        <div th:if="${#authorization.expression('hasRole(''OWNER'')')}">
             <div class="gallery">
-                <a href="list-pets.html">
-                    <img src="pets.png" width="220" height="320" class="img-fluid">
+                <a th:href="@{/pets/list-pets}">
+                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid">
                 </a>
                 <div class="desc">
                     <h3>MANI DZĪVNIEKI</h3>
@@ -36,8 +35,8 @@
                 </div>
             </div>
             <div class="gallery">
-                <a href="list-visits.html">
-                    <img src="clinic.png" width="220" height="320" class="img-fluid">
+                <a th:href="@{/visits/list-visits}">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid">
                 </a>
                 <div class="desc">
                     <h3>MANAS VIZĪTES</h3>
@@ -45,8 +44,8 @@
                 </div>
             </div>
             <div class="gallery">
-                <a href="list-docs.html">
-                    <img src="vet.png" width="220" height="320" class="img-fluid">
+                <a th:href="@{/docs/list-docs}">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid">
                 </a>
                 <div class="desc">
                     <h3>SPECIĀLISTI</h3>
@@ -54,8 +53,62 @@
                 </div>
             </div>
         </div>
+
+        <!-- VET Section -->
+        <div th:if="${#authorization.expression('hasRole(''VET'')')}">
+            <div class="gallery">
+                <a th:href="@{/visits/list-visits}">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>MANAS VIZĪTES</h3>
+                    <p>Apskati, rediģē vai piesaki jaunu vizīti!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/docs/list-docs}">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>SPECIĀLISTI</h3>
+                    <p>Iepazīsties ar mūsu speciālistu klāstu!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN Section -->
+        <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+            <div class="gallery">
+                <a th:href="@{/pets/list-pets}">
+                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>MANI DZĪVNIEKI</h3>
+                    <p>Apskati, rediģē un pievieno dzīvniekus!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/visits/list-visits}">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>VISAS VIZĪTES</h3>
+                    <p>Skatīt un pārvaldīt visas vizītes!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/docs/list-docs}">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>SPECIĀLISTI</h3>
+                    <p>Pārvaldīt speciālistu sarakstu!</p>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
+
 <footer>
     <h2>&#169 RTU 2024<br>
         Vineta Bitte 221RDB092<br>
@@ -91,7 +144,7 @@
     </div>
 </div>
 
-<!-- Registration Modal -->
+<!-- Register Modal -->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -102,7 +155,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="registerForm" action="#" th:action="@{save}" th:object="${user}" method="POST">
+                <form id="registerForm" th:action="@{/save}" th:object="${user}" method="POST">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Lietotājvārds" required>
                     </div>
@@ -122,56 +175,69 @@
     </div>
 </div>
 
+<!-- Access Denied Modal -->
+<div class="modal fade" id="accessDeniedModal" tabindex="-1" aria-labelledby="accessDeniedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="accessDeniedLabel">Nav Pieeja</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Jums nav pareizais autorizācijas līmenis, lai apskatītu šo resursu.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" th:onclick="|window.location.href='/'|">Atgriezties uz sākuma lapu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    let isLoggedIn = false; // Track login state
 
-    // Form submission handlers
+<script>
+    let isLoggedIn = false;
+
     document.getElementById("loginForm").onsubmit = function(e) {
         e.preventDefault();
-        // Add authentication logic here
         alert('Lietotājs pieteicies');
-        isLoggedIn = true; // Update login state
+        isLoggedIn = true;
         updateAuthButton();
-        $('#loginModal').modal('hide'); // Hide modal
-    }
+        $('#loginModal').modal('hide');
+    };
 
     document.getElementById("registerForm").onsubmit = function(e) {
         e.preventDefault();
-        // Add registration logic here
         alert('Lietotājs reģistrēts');
-        $('#registerModal').modal('hide'); // Hide modal
-    }
+        $('#registerModal').modal('hide');
+    };
 
-    // Toggle between login and registration
     document.getElementById("showRegister").onclick = function() {
-        $('#loginModal').modal('hide'); // Hide login modal
-        $('#registerModal').modal('show'); // Show registration modal
-    }
+        $('#loginModal').modal('hide');
+        $('#registerModal').modal('show');
+    };
 
-    // Logout function
     function logout() {
-        isLoggedIn = false; // Update login state
+        isLoggedIn = false;
         updateAuthButton();
         alert('Lietotājs ir izrakstījies');
     }
 
-    // Update the authentication button based on login state
     function updateAuthButton() {
         const authBtn = document.getElementById("authBtn");
         if (isLoggedIn) {
             authBtn.textContent = "ATSLĒGTIES";
             authBtn.onclick = logout;
-            authBtn.setAttribute("data-toggle", ""); // Remove modal toggle
+            authBtn.setAttribute("data-toggle", "");
         } else {
             authBtn.textContent = "PIESLĒGTIES";
             authBtn.onclick = function() {
-                $('#loginModal').modal('show'); // Show login modal
+                $('#loginModal').modal('show');
             };
-            authBtn.setAttribute("data-toggle", "modal"); // Re-enable modal toggle
+            authBtn.setAttribute("data-toggle", "modal");
         }
     }
 </script>

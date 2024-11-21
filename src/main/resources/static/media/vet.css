@@ -27,7 +27,7 @@ nav {
 nav ul{
 	margin-top: 0;
 	background-color: white;
-	padding-inline-start: 0px;
+	padding-inline-start: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center
@@ -80,19 +80,6 @@ header{
   font-size: 24px;
 }
 
-.lang-sel{
-  	display: flex;
-  	align-items: center;
-	background-color: #f5f6ff;
-	padding: 0;
-}
-
-.lang-sel li{
-  	margin-right: 5px;
-	margin-left: 5px;
-  	list-style: none;
-}
-
 main{
 	background-color: #f5f6ff;
 	display: grid;
@@ -107,31 +94,6 @@ main{
 div.content{
 	justify-items: center;
 	grid-column: 2;
-}
-
-div.r-gallery{
-	grid-column: 1 / span 2;
-}
-
-.rotate {
-	display: none;
-	width: 100%;
-	height: auto;
-	opacity: 0;
-	transition: all 1s;
-}
-
-.rotate.active {
-	display: block;
-	opacity: 1;
-}
-
-div.big-gallery{
-	grid-column: 1;
-	grid-row: 2;
-	display: grid;
-	grid-template-columns: auto auto auto;
-	gap: 5px;
 }
 
 div.gallery {
@@ -153,85 +115,6 @@ div.gallery img {
 div.desc {
   padding: 10px;
   text-align: center;
-}
-
-div.partners{
-	grid-column: 2;
-	grid-row: 2;
-	width: 250px;
-}
-
-div.partners img{
-	width: 220px;
-	height: auto;
-}
-
-div.katalogs{
-	grid-column: 2;
-	width: 100%;
-	background-color: white;
-}
-
-div.map{
-	width: 98vw;
-	height: 90vh;
-}
-
-div.pdf{
-	grid-column: 1;
-	grid-row: 2;
-	display: inline-grid;
-    justify-items: center;
-}
-
-div.merki, div.fof{
-	grid-column: 1;
-	grid-row: 2;
-	padding: 10px;
-}
-
-.content h1, h2{
-	text-align: center;
-	color: #982135;
-}
-
-.merki p{
-	text-align: justify;
-}
-
-.merki a:link, .merki a:active, .merki a:visited{
-	text-align: justify;
-	color: #982135;
-}
-
-.merki a:hover{
-	color: #982135;
-}
-
-.big-saites{
-	grid-column: 1;
-	grid-row: 2;
-	padding: 10px;
-	display: grid;
-	grid-template-columns: 5fr 5fr;
-	gap: 10px;
-	text-align: center;
-}
-
-.saites a:link,.saites a:active,.saites a:visited{
-	color: #982135;
-}
-
-.saites a:hover{
-	color: #982135;
-}
-
-.sazina{
-	grid-column: 1;
-	grid-row: 2;
-	display: grid;
-	grid-template-columns: 5fr 5fr;
-	gap: 10px;
 }
 
   .forma {
@@ -273,20 +156,13 @@ div.merki, div.fof{
     background-color: #c00304;
   }
 
-.kontakti h1{
-	text-align: center;
-}
-
-.kontakti p{
-	text-align: right;
-}
 
 footer{
 	background-color: rgba(18, 27, 34, 0.98);
 	color: white;
 	position: absolute;
 	width: 100%;
-    right: 0px;
+    right: 0;
 }
 
 footer h2{
