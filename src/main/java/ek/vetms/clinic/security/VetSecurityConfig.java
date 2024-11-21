@@ -23,7 +23,10 @@ public class VetSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
                         configurer
-                                // Allow everyone to access the homepage and 'About Us' page
+                                // Allow everyone to access static resources
+                                .requestMatchers("/media/**", "/css/**", "/js/**", "/images/**").permitAll()
+
+                                // Allow access to the homepage and 'About Us' page
                                 .requestMatchers("/", "/par-mums").permitAll()
 
                                 // Require authentication for all other requests
@@ -41,4 +44,5 @@ public class VetSecurityConfig {
 
         return http.build();
     }
+
 }

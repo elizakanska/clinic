@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="lv" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link th:href="@{/media/vet.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link th:href="@{/media/vet.css}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sākums</title>
@@ -23,11 +23,11 @@
 
 <main>
     <div class="content">
-        <!-- OWNER Section -->
-        <div th:if="${#authorization.expression('hasRole(''OWNER'')')}">
+        <!-- USER Section -->
+        <div th:if="${#authorization.expression('hasRole(''USER'')')}">
             <div class="gallery">
                 <a th:href="@{/pets/list-pets}">
-                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid" alt="Dzīvnieki">
                 </a>
                 <div class="desc">
                     <h3>MANI DZĪVNIEKI</h3>
@@ -36,7 +36,7 @@
             </div>
             <div class="gallery">
                 <a th:href="@{/visits/list-visits}">
-                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid" alt="Vizītes">
                 </a>
                 <div class="desc">
                     <h3>MANAS VIZĪTES</h3>
@@ -45,7 +45,7 @@
             </div>
             <div class="gallery">
                 <a th:href="@{/docs/list-docs}">
-                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid" alt="Speciālisti">
                 </a>
                 <div class="desc">
                     <h3>SPECIĀLISTI</h3>
@@ -58,7 +58,7 @@
         <div th:if="${#authorization.expression('hasRole(''VET'')')}">
             <div class="gallery">
                 <a th:href="@{/visits/list-visits}">
-                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid" alt="Vizītes">
                 </a>
                 <div class="desc">
                     <h3>MANAS VIZĪTES</h3>
@@ -67,7 +67,7 @@
             </div>
             <div class="gallery">
                 <a th:href="@{/docs/list-docs}">
-                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid" alt="Speciālisti">
                 </a>
                 <div class="desc">
                     <h3>SPECIĀLISTI</h3>
@@ -80,7 +80,7 @@
         <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
             <div class="gallery">
                 <a th:href="@{/pets/list-pets}">
-                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid" alt="Dzīvnieki">
                 </a>
                 <div class="desc">
                     <h3>MANI DZĪVNIEKI</h3>
@@ -89,7 +89,7 @@
             </div>
             <div class="gallery">
                 <a th:href="@{/visits/list-visits}">
-                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid" alt="Vizītes">
                 </a>
                 <div class="desc">
                     <h3>VISAS VIZĪTES</h3>
@@ -98,7 +98,7 @@
             </div>
             <div class="gallery">
                 <a th:href="@{/docs/list-docs}">
-                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid" alt="Speciālisti">
                 </a>
                 <div class="desc">
                     <h3>SPECIĀLISTI</h3>
@@ -131,10 +131,14 @@
             <div class="modal-body">
                 <form id="loginForm" th:action="@{/authenticate}" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                        </label>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Parole" required>
+                        <label>
+                            <input type="password" class="form-control" placeholder="Parole" required>
+                        </label>
                     </div>
                     <button type="submit" class="btn btn-primary">Ieiet</button>
                     <button type="button" class="btn btn-link" id="showRegister">Reģistrēties</button>
@@ -157,16 +161,24 @@
             <div class="modal-body">
                 <form id="registerForm" th:action="@{/save}" th:object="${user}" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                        </label>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="E-pasts" required>
+                        <label>
+                            <input type="email" class="form-control" placeholder="E-pasts" required>
+                        </label>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Parole" required>
+                        <label>
+                            <input type="password" class="form-control" placeholder="Parole" required>
+                        </label>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Atkārtojiet paroli" required>
+                        <label>
+                            <input type="password" class="form-control" placeholder="Atkārtojiet paroli" required>
+                        </label>
                     </div>
                     <button type="submit" class="btn btn-success">Reģistrēties</button>
                 </form>
