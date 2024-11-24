@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="lv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vet.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sākums</title>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <h1 class="page-name">LetVet</h1>
+    </div>
+</header>
+<nav>
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link" href="#">SĀKUMS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">MANI DZĪVNIEKI</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">MANAS VIZĪTES</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">SPECIĀLISTI</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">PAR MUMS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" id="authBtn" data-toggle="modal" data-target="#loginModal">PIESLĒGTIES</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="content">
+        <div class="big-gallery">
+            <div class="gallery">
+                <a href="list-pets.html">
+                    <img src="pets.png" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>MANI DZĪVNIEKI</h3>
+                    <p>Apskati, rediģē un pievieno savus dzīvniekus!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a href="list-visits.html">
+                    <img src="clinic.png" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>MANAS VIZĪTES</h3>
+                    <p>Apskati, rediģē vai piesaki jaunu vizīti!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a href="list-docs.html">
+                    <img src="vet.png" width="220" height="320" class="img-fluid">
+                </a>
+                <div class="desc">
+                    <h3>SPECIĀLISTI</h3>
+                    <p>Iepazīsties ar mūsu speciālistu klāstu!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <h2>&#169 RTU 2024<br>
+        Vineta Bitte 221RDB092<br>
+        Evelīna Geikina 221RDB068<br>
+        Elīza Kanska 221RDB095<br>
+        Evelīna Paula Ķerķe 221RDB044
+    </h2>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">PIESLĒGTIES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" th:action="@{/authenticate}" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Parole" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ieiet</button>
+                    <button type="button" class="btn btn-link" id="showRegister">Reģistrēties</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">REĢISTRĒTIES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" action="#" th:action="@{save}" th:object="${user}" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="E-pasts" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Parole" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Atkārtojiet paroli" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Reģistrēties</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    let isLoggedIn = false; // Track login state
+
+    // Form submission handlers
+    document.getElementById("loginForm").onsubmit = function(e) {
+        e.preventDefault();
+        // Add authentication logic here
+        alert('Lietotājs pieteicies');
+        isLoggedIn = true; // Update login state
+        updateAuthButton();
+        $('#loginModal').modal('hide'); // Hide modal
+    }
+
+    document.getElementById("registerForm").onsubmit = function(e) {
+        e.preventDefault();
+        // Add registration logic here
+        alert('Lietotājs reģistrēts');
+        $('#registerModal').modal('hide'); // Hide modal
+    }
+
+    // Toggle between login and registration
+    document.getElementById("showRegister").onclick = function() {
+        $('#loginModal').modal('hide'); // Hide login modal
+        $('#registerModal').modal('show'); // Show registration modal
+    }
+
+    // Logout function
+    function logout() {
+        isLoggedIn = false; // Update login state
+        updateAuthButton();
+        alert('Lietotājs ir izrakstījies');
+    }
+
+    // Update the authentication button based on login state
+    function updateAuthButton() {
+        const authBtn = document.getElementById("authBtn");
+        if (isLoggedIn) {
+            authBtn.textContent = "ATSLĒGTIES";
+            authBtn.onclick = logout;
+            authBtn.setAttribute("data-toggle", ""); // Remove modal toggle
+        } else {
+            authBtn.textContent = "PIESLĒGTIES";
+            authBtn.onclick = function() {
+                $('#loginModal').modal('show'); // Show login modal
+            };
+            authBtn.setAttribute("data-toggle", "modal"); // Re-enable modal toggle
+        }
+    }
+</script>
+</body>
+</html>

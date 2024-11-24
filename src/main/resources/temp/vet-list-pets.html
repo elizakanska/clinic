@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>Pet List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>Pacients</h2>
+    <hr>
+
+    <p style="text-align: center;">
+        <span sec:authentication="principal.username">Speciālists #1</span>
+    </p>
+    <hr>
+
+    <form action="#" th:action="@{/logout}" method="POST" style="float: right; margin-left: 30vw;">
+        <button type="submit" class="btn btn-danger">Iziet</button>
+    </form>
+
+    <a th:href="@{../visits/list}">Uz vizītēm</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Saimnieks</th>
+                <th>Vārds</th>
+                <th>Tips</th>
+                <th>Suga</th>
+                <th>Vecums</th>
+                <th>Piezīmes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="pet : ${pets}">
+                <td th:text="${user.pet.id}"/>
+                <td th:text="${pet.name}"/>
+                <td th:text="${pet.type}"/>
+                <td th:text="${pet.species}"/>
+                <td th:text="${pet.age}"/>
+                <td th:text="${pet.notes}"/>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
