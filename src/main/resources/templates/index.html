@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="lv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/media/vet.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sākums</title>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <h1 class="page-name">LetVet</h1>
+    </div>
+</header>
+<nav>
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link" href="#">SĀKUMS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">PAR MUMS</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" id="authBtn" data-toggle="modal" data-target="#loginModal">PIESLĒGTIES</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="content">
+        <!-- USER Section -->
+        <div th:if="${#authorization.expression('hasRole(''USER'')')}">
+            <div class="gallery">
+                <a th:href="@{/pets/list-pets}">
+                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid" alt="Dzīvnieki">
+                </a>
+                <div class="desc">
+                    <h3>MANI DZĪVNIEKI</h3>
+                    <p>Apskati, rediģē un pievieno savus dzīvniekus!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/visits/list-visits}">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid" alt="Vizītes">
+                </a>
+                <div class="desc">
+                    <h3>MANAS VIZĪTES</h3>
+                    <p>Apskati, rediģē vai piesaki jaunu vizīti!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/docs/list-docs}">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid" alt="Speciālisti">
+                </a>
+                <div class="desc">
+                    <h3>SPECIĀLISTI</h3>
+                    <p>Iepazīsties ar mūsu speciālistu klāstu!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VET Section -->
+        <div th:if="${#authorization.expression('hasRole(''VET'')')}">
+            <div class="gallery">
+                <a th:href="@{/visits/list-visits}">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid" alt="Vizītes">
+                </a>
+                <div class="desc">
+                    <h3>MANAS VIZĪTES</h3>
+                    <p>Apskati, rediģē vai piesaki jaunu vizīti!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/docs/list-docs}">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid" alt="Speciālisti">
+                </a>
+                <div class="desc">
+                    <h3>SPECIĀLISTI</h3>
+                    <p>Iepazīsties ar mūsu speciālistu klāstu!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN Section -->
+        <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+            <div class="gallery">
+                <a th:href="@{/pets/list-pets}">
+                    <img th:src="@{/media/pets.png}" width="220" height="320" class="img-fluid" alt="Dzīvnieki">
+                </a>
+                <div class="desc">
+                    <h3>MANI DZĪVNIEKI</h3>
+                    <p>Apskati, rediģē un pievieno dzīvniekus!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/visits/list-visits}">
+                    <img th:src="@{/media/clinic.png}" width="220" height="320" class="img-fluid" alt="Vizītes">
+                </a>
+                <div class="desc">
+                    <h3>VISAS VIZĪTES</h3>
+                    <p>Skatīt un pārvaldīt visas vizītes!</p>
+                </div>
+            </div>
+            <div class="gallery">
+                <a th:href="@{/docs/list-docs}">
+                    <img th:src="@{/media/vet.png}" width="220" height="320" class="img-fluid" alt="Speciālisti">
+                </a>
+                <div class="desc">
+                    <h3>SPECIĀLISTI</h3>
+                    <p>Pārvaldīt speciālistu sarakstu!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <h2>&#169 RTU 2024<br>
+        Vineta Bitte 221RDB092<br>
+        Evelīna Geikina 221RDB068<br>
+        Elīza Kanska 221RDB095<br>
+        Evelīna Paula Ķerķe 221RDB044
+    </h2>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">PIESLĒGTIES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" th:action="@{/authenticate}" method="POST">
+                    <div class="form-group">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="password" class="form-control" placeholder="Parole" required>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ieiet</button>
+                    <button type="button" class="btn btn-link" id="showRegister">Reģistrēties</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">REĢISTRĒTIES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" th:action="@{/save}" th:object="${user}" method="POST">
+                    <div class="form-group">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Lietotājvārds" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="email" class="form-control" placeholder="E-pasts" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="password" class="form-control" placeholder="Parole" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="password" class="form-control" placeholder="Atkārtojiet paroli" required>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-success">Reģistrēties</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Access Denied Modal -->
+<div class="modal fade" id="accessDeniedModal" tabindex="-1" aria-labelledby="accessDeniedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="accessDeniedLabel">Nav Pieeja</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Jums nav pareizais autorizācijas līmenis, lai apskatītu šo resursu.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" th:onclick="|window.location.href='/'|">Atgriezties uz sākuma lapu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    let isLoggedIn = false;
+
+    document.getElementById("loginForm").onsubmit = function(e) {
+        e.preventDefault();
+        alert('Lietotājs pieteicies');
+        isLoggedIn = true;
+        updateAuthButton();
+        $('#loginModal').modal('hide');
+    };
+
+    document.getElementById("registerForm").onsubmit = function(e) {
+        e.preventDefault();
+        alert('Lietotājs reģistrēts');
+        $('#registerModal').modal('hide');
+    };
+
+    document.getElementById("showRegister").onclick = function() {
+        $('#loginModal').modal('hide');
+        $('#registerModal').modal('show');
+    };
+
+    function logout() {
+        isLoggedIn = false;
+        updateAuthButton();
+        alert('Lietotājs ir izrakstījies');
+    }
+
+    function updateAuthButton() {
+        const authBtn = document.getElementById("authBtn");
+        if (isLoggedIn) {
+            authBtn.textContent = "ATSLĒGTIES";
+            authBtn.onclick = logout;
+            authBtn.setAttribute("data-toggle", "");
+        } else {
+            authBtn.textContent = "PIESLĒGTIES";
+            authBtn.onclick = function() {
+                $('#loginModal').modal('show');
+            };
+            authBtn.setAttribute("data-toggle", "modal");
+        }
+    }
+</script>
+</body>
+</html>

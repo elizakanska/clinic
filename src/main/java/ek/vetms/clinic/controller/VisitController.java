@@ -5,6 +5,7 @@ import ek.vetms.clinic.entity.Visit;
 import ek.vetms.clinic.service.PetService;
 import ek.vetms.clinic.service.VisitService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,55 +16,42 @@ import java.util.Optional;
 @AllArgsConstructor
 @Controller
 @RequestMapping("visits")
-//jāpārveido, lai visas formas ved uz modāļiem nevis jaunām html lapām
 public class VisitController {
     private final VisitService service;
     private final PetService petService;
 
     @GetMapping("/list")
-    public String listVisits(Model model){
+    public String listVisits(Model model) {
         List<Visit> visits = service.findAll();
         model.addAttribute("visits", visits);
-
         return "visits/list-visits";
     }
 
-    @GetMapping("/addForm")
-    public String addForm(Model model){
-        List<Pet> pets = petService.findAll();
-        Visit visit = new Visit();
-
-        model.addAttribute("pets", pets);
-        model.addAttribute("visit", visit);
-
-        return "visits/visit-form";
+    @GetMapping("/data/{visitId}")
+    @ResponseBody
+    public ResponseEntity<Visit> getVisitData(@PathVariable("visitId") Long id) {
+        Optional<Visit> tempVisit = service.findVisitById(id);
+        return tempVisit.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/editForm")
-    public String editForm(@RequestParam("visitId") Long id, Model model){
+    @GetMapping("/pets")
+    @ResponseBody
+    public ResponseEntity<List<Pet>> getAllPets() {
         List<Pet> pets = petService.findAll();
-        Optional<Visit> tempVisit = service.findVisitById(id);
-        if (tempVisit.isPresent()) {
-            Visit visit = tempVisit.get();
-            model.addAttribute("pets", pets);
-            model.addAttribute("visit", visit);
-            return "visits/visit-form";
-        } else {
-            return "redirect:/visitNotFound";
-        }
+        return ResponseEntity.ok(pets);
     }
 
     @PostMapping("/save")
-    public String saveVisit(@ModelAttribute("visit") Visit visit){
+    @ResponseBody
+    public ResponseEntity<String> saveVisit(@RequestBody Visit visit) {
         service.saveVisit(visit);
-
-        return "redirect:list";
+        return ResponseEntity.ok("Visit saved successfully!");
     }
 
-    @GetMapping("/delete")
-    public String delete(@RequestParam("visitId") Long id){
+    @DeleteMapping("/delete/{visitId}")
+    @ResponseBody
+    public ResponseEntity<String> deleteVisit(@PathVariable("visitId") Long id) {
         service.deleteVisitById(id);
-
-        return "redirect:list";
+        return ResponseEntity.ok("Visit deleted successfully!");
     }
 }

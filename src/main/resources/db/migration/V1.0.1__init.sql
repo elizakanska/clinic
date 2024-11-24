@@ -13,7 +13,7 @@ CREATE TABLE users (
                        PRIMARY KEY (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Create Authorities table for user roles (admin, owner, vet)
+-- Create Authorities table for user roles (admin, user, vet)
 CREATE TABLE authorities (
                              username VARCHAR(50) NOT NULL,
                              authority VARCHAR(50) NOT NULL,
@@ -57,8 +57,8 @@ INSERT INTO users (username, password, email, enabled, specialty) VALUES
 -- Assign roles
 INSERT INTO authorities (username, authority) VALUES
                                                   ('admin', 'ROLE_ADMIN'),
-                                                  ('jane', 'ROLE_OWNER'),
-                                                  ('john', 'ROLE_OWNER'),
+                                                  ('jane', 'ROLE_USER'),
+                                                  ('john', 'ROLE_USER'),
                                                   ('vetuser', 'ROLE_VET');
 
 -- Temporarily drop the foreign key constraint

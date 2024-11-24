@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Basic endpoints for everything">
+    <list default="true" id="02aa856e-012b-47ea-9719-d0f02ea902eb" name="Changes" comment="Izveidoju lietotāju klases, vēl laboju register/login loģiku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pets/list-pets.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -98,7 +100,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.VetClinicMsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;eves-branch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;eliza&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/eliza.kanska/IdeaProjects/staffing-service_1&quot;,
@@ -244,6 +246,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Gradle.PetServiceImplTest.testDeletePetByIdNotFound" />
+      <item itemvalue="Gradle.PetServiceImplTest.testDeletePetByIdSuccess" />
+      <item itemvalue="Gradle.PetServiceImplTest.testEditPetByIdSuccess" />
+      <item itemvalue="Gradle.PetServiceImplTest.testSavePetNull" />
+      <item itemvalue="Gradle.VisitServiceImplTest" />
+      <item itemvalue="Spring Boot.VetClinicMsApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.VisitServiceImplTest" />
@@ -336,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729948810856</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Izveidoju lietotāju klases, vēl laboju register/login loģiku">
+      <option name="closed" value="true" />
+      <created>1732195728214</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732195728214</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +391,14 @@
     <MESSAGE value="Basic Controllers (no Api yet)" />
     <MESSAGE value="Minor edits" />
     <MESSAGE value="Basic endpoints for everything" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic endpoints for everything" />
+    <MESSAGE value="Izveidoju lietotāju klases, vēl laboju register/login loģiku" />
+    <option name="LAST_COMMIT_MESSAGE" value="Izveidoju lietotāju klases, vēl laboju register/login loģiku" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest.ic" NAME="PetServiceImplTest Coverage Results" MODIFIED="1706681305217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/clinic$VisitServiceImplTest.ic" NAME="VisitServiceImplTest Coverage Results" MODIFIED="1705925129198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/clinic$Tests_in__clinic_test_.ic" NAME="Tests in 'clinic.test' Coverage Results" MODIFIED="1705927933298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/clinic$PetServiceImplTest_testFindAll.ic" NAME="PetServiceImplTest.testFindAll Coverage Results" MODIFIED="1706534571796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/clinic$Tests_in__ek_vetms_clinic_tests_.ic" NAME="Tests in 'ek.vetms.clinic.tests' Coverage Results" MODIFIED="1706883777880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
